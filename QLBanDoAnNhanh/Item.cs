@@ -12,37 +12,38 @@ namespace QLBanDoAnNhanh
 {
     public partial class Item : UserControl
     {
+        private int _id;
+        private string _price;
+        private string _name;
+        private bool _isActive;
         public Item()
         {
             InitializeComponent();
         }
 
-        private void Item_Click(object sender, EventArgs e)
+        public int ID
         {
-            if(btnValid.Visible == false)
-            {
-                btnValid.Visible = true;
-            }
-            else
-            {
-                btnValid.Visible = false;
-            }
+            get { return _id; }
+            set { _id = value; }
+        }
+        public string Price
+        {
+            get { return _price; }
+            set { _price = value; lbPrice.Text = value;  }
         }
 
-        private void pnName_Click(object sender, EventArgs e)
+        public string _Name
         {
-
-            if (btnValid.Visible == false)
-            {
-                btnValid.Visible = true;
-            }
-            else
-            {
-                btnValid.Visible = false;
-            }
+            get { return _name; }
+            set { _name = value; lbName.Text = value; }
         }
 
-        private void lbName_Click(object sender, EventArgs e)
+        public bool IsActive
+        {
+            get { return _isActive; }
+            set { _isActive = value; pnSoldout.Visible = value; }
+        }
+        public bool IsValid()
         {
             if (btnValid.Visible == false)
             {
@@ -52,6 +53,8 @@ namespace QLBanDoAnNhanh
             {
                 btnValid.Visible = false;
             }
+            return btnValid.Visible;
         }
+
     }
 }

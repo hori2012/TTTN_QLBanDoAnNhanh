@@ -29,34 +29,34 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ItemOrder));
-            this.numCount = new Guna.UI2.WinForms.Guna2NumericUpDown();
+            this.numQuantity = new Guna.UI2.WinForms.Guna2NumericUpDown();
             this.lbName = new System.Windows.Forms.Label();
             this.lbDate = new System.Windows.Forms.Label();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.lbPrice = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.numCount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numQuantity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // numCount
+            // numQuantity
             // 
-            this.numCount.BackColor = System.Drawing.Color.Transparent;
-            this.numCount.BorderColor = System.Drawing.Color.Tomato;
-            this.numCount.BorderRadius = 4;
-            this.numCount.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.numCount.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.numCount.Location = new System.Drawing.Point(280, 18);
-            this.numCount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.numCount.Minimum = new decimal(new int[] {
+            this.numQuantity.BackColor = System.Drawing.Color.Transparent;
+            this.numQuantity.BorderColor = System.Drawing.Color.Tomato;
+            this.numQuantity.BorderRadius = 4;
+            this.numQuantity.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.numQuantity.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.numQuantity.Location = new System.Drawing.Point(280, 18);
+            this.numQuantity.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.numQuantity.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numCount.Name = "numCount";
-            this.numCount.Size = new System.Drawing.Size(71, 31);
-            this.numCount.TabIndex = 0;
-            this.numCount.UpDownButtonFillColor = System.Drawing.Color.Tomato;
-            this.numCount.Value = new decimal(new int[] {
+            this.numQuantity.Name = "numQuantity";
+            this.numQuantity.Size = new System.Drawing.Size(71, 31);
+            this.numQuantity.TabIndex = 0;
+            this.numQuantity.UpDownButtonFillColor = System.Drawing.Color.Tomato;
+            this.numQuantity.Value = new decimal(new int[] {
             1,
             0,
             0,
@@ -66,7 +66,7 @@
             // 
             this.lbName.AutoSize = true;
             this.lbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbName.Location = new System.Drawing.Point(47, 7);
+            this.lbName.Location = new System.Drawing.Point(50, 7);
             this.lbName.Name = "lbName";
             this.lbName.Size = new System.Drawing.Size(52, 18);
             this.lbName.TabIndex = 1;
@@ -85,6 +85,7 @@
             // 
             // guna2PictureBox1
             // 
+            this.guna2PictureBox1.BorderRadius = 4;
             this.guna2PictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
             this.guna2PictureBox1.ImageRotate = 0F;
@@ -114,10 +115,10 @@
             this.Controls.Add(this.guna2PictureBox1);
             this.Controls.Add(this.lbDate);
             this.Controls.Add(this.lbName);
-            this.Controls.Add(this.numCount);
+            this.Controls.Add(this.numQuantity);
             this.Name = "ItemOrder";
             this.Size = new System.Drawing.Size(444, 67);
-            ((System.ComponentModel.ISupportInitialize)(this.numCount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numQuantity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -126,7 +127,7 @@
 
         #endregion
 
-        private Guna.UI2.WinForms.Guna2NumericUpDown numCount;
+        private Guna.UI2.WinForms.Guna2NumericUpDown numQuantity;
         private System.Windows.Forms.Label lbName;
         private System.Windows.Forms.Label lbDate;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;

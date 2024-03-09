@@ -30,12 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Item));
             this.pnPrice = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.lbPrice = new System.Windows.Forms.Label();
             this.pnName = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.lbName = new System.Windows.Forms.Label();
-            this.lbPrice = new System.Windows.Forms.Label();
             this.btnValid = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.pnSoldout = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.label1 = new System.Windows.Forms.Label();
             this.pnPrice.SuspendLayout();
             this.pnName.SuspendLayout();
+            this.pnSoldout.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnPrice
@@ -51,6 +54,18 @@
             this.pnPrice.Size = new System.Drawing.Size(91, 26);
             this.pnPrice.TabIndex = 0;
             // 
+            // lbPrice
+            // 
+            this.lbPrice.BackColor = System.Drawing.Color.Transparent;
+            this.lbPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPrice.ForeColor = System.Drawing.Color.White;
+            this.lbPrice.Location = new System.Drawing.Point(3, 4);
+            this.lbPrice.Name = "lbPrice";
+            this.lbPrice.Size = new System.Drawing.Size(85, 18);
+            this.lbPrice.TabIndex = 0;
+            this.lbPrice.Text = "9.0$";
+            this.lbPrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // pnName
             // 
             this.pnName.BackColor = System.Drawing.Color.Transparent;
@@ -63,29 +78,16 @@
             this.pnName.ShadowColor = System.Drawing.Color.White;
             this.pnName.Size = new System.Drawing.Size(173, 38);
             this.pnName.TabIndex = 1;
-            this.pnName.Click += new System.EventHandler(this.pnName_Click);
             // 
             // lbName
             // 
-            this.lbName.AutoSize = true;
-            this.lbName.Location = new System.Drawing.Point(58, 9);
+            this.lbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbName.Location = new System.Drawing.Point(9, 8);
             this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(47, 18);
+            this.lbName.Size = new System.Drawing.Size(161, 18);
             this.lbName.TabIndex = 0;
-            this.lbName.Text = "Buger";
-            this.lbName.Click += new System.EventHandler(this.lbName_Click);
-            // 
-            // lbPrice
-            // 
-            this.lbPrice.AutoSize = true;
-            this.lbPrice.BackColor = System.Drawing.Color.Transparent;
-            this.lbPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPrice.ForeColor = System.Drawing.Color.White;
-            this.lbPrice.Location = new System.Drawing.Point(18, 4);
-            this.lbPrice.Name = "lbPrice";
-            this.lbPrice.Size = new System.Drawing.Size(36, 18);
-            this.lbPrice.TabIndex = 0;
-            this.lbPrice.Text = "9.0$";
+            this.lbName.Text = "Buger king";
+            this.lbName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnValid
             // 
@@ -109,23 +111,45 @@
             this.btnValid.TabIndex = 2;
             this.btnValid.Visible = false;
             // 
+            // pnSoldout
+            // 
+            this.pnSoldout.BackColor = System.Drawing.Color.Transparent;
+            this.pnSoldout.Controls.Add(this.label1);
+            this.pnSoldout.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.pnSoldout.Location = new System.Drawing.Point(0, 64);
+            this.pnSoldout.Name = "pnSoldout";
+            this.pnSoldout.ShadowColor = System.Drawing.Color.White;
+            this.pnSoldout.Size = new System.Drawing.Size(203, 24);
+            this.pnSoldout.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(65, 4);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(64, 16);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Sold out";
+            // 
             // Item
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.pnSoldout);
             this.Controls.Add(this.btnValid);
             this.Controls.Add(this.pnName);
             this.Controls.Add(this.pnPrice);
             this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Name = "Item";
-            this.Size = new System.Drawing.Size(203, 196);
-            this.Click += new System.EventHandler(this.Item_Click);
+            this.Size = new System.Drawing.Size(201, 201);
             this.pnPrice.ResumeLayout(false);
-            this.pnPrice.PerformLayout();
             this.pnName.ResumeLayout(false);
-            this.pnName.PerformLayout();
+            this.pnSoldout.ResumeLayout(false);
+            this.pnSoldout.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -137,5 +161,7 @@
         private System.Windows.Forms.Label lbPrice;
         private System.Windows.Forms.Label lbName;
         private Guna.UI2.WinForms.Guna2GradientButton btnValid;
+        private Guna.UI2.WinForms.Guna2ShadowPanel pnSoldout;
+        private System.Windows.Forms.Label label1;
     }
 }
