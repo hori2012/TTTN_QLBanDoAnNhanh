@@ -264,7 +264,7 @@
             this.guna2ControlBox1.BackColor = System.Drawing.Color.Transparent;
             this.guna2ControlBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(68)))));
             this.guna2ControlBox1.IconColor = System.Drawing.Color.Black;
-            this.guna2ControlBox1.Location = new System.Drawing.Point(1328, 0);
+            this.guna2ControlBox1.Location = new System.Drawing.Point(1337, 0);
             this.guna2ControlBox1.Name = "guna2ControlBox1";
             this.guna2ControlBox1.Size = new System.Drawing.Size(45, 29);
             this.guna2ControlBox1.TabIndex = 1;
@@ -284,7 +284,7 @@
             this.guna2ShadowPanel1.ShadowColor = System.Drawing.Color.Black;
             this.guna2ShadowPanel1.ShadowDepth = 50;
             this.guna2ShadowPanel1.ShadowShift = 3;
-            this.guna2ShadowPanel1.Size = new System.Drawing.Size(1180, 96);
+            this.guna2ShadowPanel1.Size = new System.Drawing.Size(1195, 96);
             this.guna2ShadowPanel1.TabIndex = 4;
             // 
             // guna2PictureBox2
@@ -401,7 +401,7 @@
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(1372, 808);
+            this.guna2Panel1.Size = new System.Drawing.Size(1381, 808);
             this.guna2Panel1.TabIndex = 4;
             // 
             // guna2ControlBox2
@@ -411,7 +411,7 @@
             this.guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
             this.guna2ControlBox2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(68)))));
             this.guna2ControlBox2.IconColor = System.Drawing.Color.Black;
-            this.guna2ControlBox2.Location = new System.Drawing.Point(1283, 0);
+            this.guna2ControlBox2.Location = new System.Drawing.Point(1292, 0);
             this.guna2ControlBox2.Name = "guna2ControlBox2";
             this.guna2ControlBox2.Size = new System.Drawing.Size(45, 29);
             this.guna2ControlBox2.TabIndex = 11;
@@ -447,7 +447,7 @@
             this.guna2Panel2.Controls.Add(this.label4);
             this.guna2Panel2.Location = new System.Drawing.Point(892, 529);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(451, 246);
+            this.guna2Panel2.Size = new System.Drawing.Size(477, 246);
             this.guna2Panel2.TabIndex = 8;
             // 
             // cbCoupons
@@ -475,7 +475,7 @@
             this.btnPay.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPay.ForeColor = System.Drawing.Color.Black;
             this.btnPay.Image = ((System.Drawing.Image)(resources.GetObject("btnPay.Image")));
-            this.btnPay.Location = new System.Drawing.Point(173, 166);
+            this.btnPay.Location = new System.Drawing.Point(200, 161);
             this.btnPay.Name = "btnPay";
             this.btnPay.Size = new System.Drawing.Size(131, 68);
             this.btnPay.TabIndex = 6;
@@ -486,7 +486,7 @@
             this.lbLastPrice.AutoSize = true;
             this.lbLastPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbLastPrice.ForeColor = System.Drawing.Color.Tomato;
-            this.lbLastPrice.Location = new System.Drawing.Point(330, 120);
+            this.lbLastPrice.Location = new System.Drawing.Point(346, 120);
             this.lbLastPrice.Name = "lbLastPrice";
             this.lbLastPrice.Size = new System.Drawing.Size(70, 32);
             this.lbLastPrice.TabIndex = 5;
@@ -497,7 +497,7 @@
             this.lbCouponPrice.AutoSize = true;
             this.lbCouponPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbCouponPrice.ForeColor = System.Drawing.Color.Tomato;
-            this.lbCouponPrice.Location = new System.Drawing.Point(378, 63);
+            this.lbCouponPrice.Location = new System.Drawing.Point(394, 63);
             this.lbCouponPrice.Name = "lbCouponPrice";
             this.lbCouponPrice.Size = new System.Drawing.Size(36, 18);
             this.lbCouponPrice.TabIndex = 4;
@@ -519,7 +519,7 @@
             this.lbTotal.AutoSize = true;
             this.lbTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTotal.ForeColor = System.Drawing.Color.Gray;
-            this.lbTotal.Location = new System.Drawing.Point(378, 14);
+            this.lbTotal.Location = new System.Drawing.Point(394, 14);
             this.lbTotal.Name = "lbTotal";
             this.lbTotal.Size = new System.Drawing.Size(36, 18);
             this.lbTotal.TabIndex = 1;
@@ -544,7 +544,7 @@
             this.guna2GradientPanel3.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(72)))), ((int)(((byte)(115)))));
             this.guna2GradientPanel3.Location = new System.Drawing.Point(892, 170);
             this.guna2GradientPanel3.Name = "guna2GradientPanel3";
-            this.guna2GradientPanel3.Size = new System.Drawing.Size(462, 60);
+            this.guna2GradientPanel3.Size = new System.Drawing.Size(477, 60);
             this.guna2GradientPanel3.TabIndex = 6;
             // 
             // label6
@@ -605,7 +605,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(250)))));
-            this.ClientSize = new System.Drawing.Size(1372, 808);
+            this.ClientSize = new System.Drawing.Size(1381, 808);
             this.Controls.Add(this.guna2GradientPanel1);
             this.Controls.Add(this.guna2GradientPanel2);
             this.Controls.Add(this.guna2Panel1);

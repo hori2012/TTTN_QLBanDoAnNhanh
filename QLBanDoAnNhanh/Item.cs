@@ -13,7 +13,7 @@ namespace QLBanDoAnNhanh
     public partial class Item : UserControl
     {
         private int _id;
-        private string _price;
+        private decimal _price;
         private string _name;
         private bool _isActive;
         public Item()
@@ -26,10 +26,10 @@ namespace QLBanDoAnNhanh
             get { return _id; }
             set { _id = value; }
         }
-        public string Price
+        public decimal Price
         {
             get { return _price; }
-            set { _price = value; lbPrice.Text = value;  }
+            set { _price = value;}
         }
 
         public string _Name
@@ -48,6 +48,9 @@ namespace QLBanDoAnNhanh
             get { return btnValid.Visible; }
             set { btnValid.Visible = value; }
         }
-
+        public string LablePrice
+        {
+            set { lbPrice.Text = value; }
+        }
     }
 }

@@ -16,7 +16,7 @@ namespace QLBanDoAnNhanh
     {
 
         private int _id;
-        private string _price;
+        private decimal _price;
         private string _name;
         private string _date;
         private int _quantity;
@@ -29,10 +29,10 @@ namespace QLBanDoAnNhanh
             get { return _id; }
             set { _id = value; }
         }
-        public string Price
+        public decimal Price
         {
             get { return _price; }
-            set { _price = value; lbPrice.Text = value; }
+            set { _price = value;}
         }
 
         public string _Name
@@ -63,6 +63,11 @@ namespace QLBanDoAnNhanh
         public NumericUpDown upDown
         {
             get { return numQuantity; }
+        }
+
+        public string LablePrice
+        {
+            set { lbPrice.Text = value; }
         }
     }
 }

@@ -52,7 +52,8 @@ namespace QLBanDoAnNhanh
                 _itemProduct = new Item();
                 _itemProduct.ID = item.IdProduct;
                 _itemProduct._Name = item.NameProduct;
-                _itemProduct.Price = item.PriceProduct.Value.ToString("0.0") + "$";
+                _itemProduct.Price = (decimal)item.PriceProduct;
+                _itemProduct.LablePrice = item.PriceProduct.Value.ToString("0.0") + "$";
                 if (item.IsActive == true)
                 {
                     _itemProduct.IsActive = false;
@@ -68,7 +69,7 @@ namespace QLBanDoAnNhanh
                 }
                 _itemProduct.Tag = item.IdProduct;
                 _itemProduct.Click += new System.EventHandler(this.Item_Click);
-                
+                _itemProduct.DoubleClick += Item_DoubleClick;
                 flpItems.Controls.Add(_itemProduct);
                 CheckItemInOrder();
             }
@@ -97,7 +98,8 @@ namespace QLBanDoAnNhanh
                 _itemProduct = new Item();
                 _itemProduct.ID = item.IdProduct;
                 _itemProduct._Name = item.NameProduct;
-                _itemProduct.Price = item.PriceProduct.Value.ToString("0.0") + "$";
+                _itemProduct.Price = (decimal)item.PriceProduct;
+                _itemProduct.LablePrice = item.PriceProduct.Value.ToString("0.0") + "$";
                 if (item.IsActive == true)
                 {
                     _itemProduct.IsActive = false;
@@ -141,7 +143,8 @@ namespace QLBanDoAnNhanh
                 _itemProduct = new Item();
                 _itemProduct.ID = item.IdProduct;
                 _itemProduct._Name = item.NameProduct;
-                _itemProduct.Price = item.PriceProduct.Value.ToString("0.0") + "$";
+                _itemProduct.Price = (decimal)item.PriceProduct;
+                _itemProduct.LablePrice = item.PriceProduct.Value.ToString("0.0") + "$";
                 if (item.IsActive == true)
                 {
                     _itemProduct.IsActive = false;
@@ -185,7 +188,8 @@ namespace QLBanDoAnNhanh
                 _itemProduct = new Item();
                 _itemProduct.ID = item.IdProduct;
                 _itemProduct._Name = item.NameProduct;
-                _itemProduct.Price = item.PriceProduct.Value.ToString("0.0") + "$";
+                _itemProduct.Price = (decimal)item.PriceProduct;
+                _itemProduct.LablePrice = item.PriceProduct.Value.ToString("0.0") + "$";
                 if (item.IsActive == true)
                 {
                     _itemProduct.IsActive = false;
@@ -229,7 +233,8 @@ namespace QLBanDoAnNhanh
                 _itemProduct = new Item();
                 _itemProduct.ID = item.IdProduct;
                 _itemProduct._Name = item.NameProduct;
-                _itemProduct.Price = item.PriceProduct.Value.ToString("0.0") + "$";
+                _itemProduct.Price = (decimal)item.PriceProduct;
+                _itemProduct.LablePrice = item.PriceProduct.Value.ToString("0.0") + "$";
                 if (item.IsActive == true)
                 {
                     _itemProduct.IsActive = false;
@@ -282,6 +287,7 @@ namespace QLBanDoAnNhanh
                 _itemOrder.Price = itemControl.Price;
                 _itemOrder._Date = DateTime.Now.ToString();
                 _itemOrder.Quantity = 1;
+                _itemOrder.LablePrice = itemControl.Price.ToString("0.0") + "$";
                 _itemOrder.Tag = itemControl.ID;
                 _itemOrder.upDown.ValueChanged += numQuantity_Valuechanged;
                 flpOrder.Controls.Add(_itemOrder);
@@ -289,28 +295,20 @@ namespace QLBanDoAnNhanh
                 {
                     if (control is ItemOrder itemOrder)
                     {
-                        _price += (decimal.Parse(itemOrder.Price.Substring(0, itemOrder.Price.Length - 1)) * itemOrder.Quantity);
+                        _price += (itemOrder.Price * itemOrder.Quantity);
                     }
                 }
             }
             else
             {
                 itemControl.IsValid = false;
-                _price = 0;
-                foreach (Control control in flpOrder.Controls)
-                {
-                    if (control is ItemOrder itemOrder)
-                    {
-                        _price += (decimal.Parse(itemOrder.Price.Substring(0, itemOrder.Price.Length - 1)) + itemOrder.Quantity);
-                    }
-                }
                 foreach (Control control in flpOrder.Controls)
                 {
                     if (control is ItemOrder itemOrder)
                     {
                         if ((int)itemOrder.Tag == (int)itemControl.Tag)
                         {
-                            _price -= (decimal.Parse(itemOrder.Price.Substring(0, itemOrder.Price.Length - 1)) * itemOrder.Quantity);
+                            _price -= (itemOrder.Price * itemOrder.Quantity);
                             flpOrder.Controls.Remove(itemOrder);
                         }
                     }
@@ -331,7 +329,9 @@ namespace QLBanDoAnNhanh
                     {
                         itemOrder.Quantity = (int)upDown.Value;
                     }
-                    _price += (decimal.Parse(itemOrder.Price.Substring(0, itemOrder.Price.Length - 1)) * itemOrder.Quantity);
+                    _price += (itemOrder.Price * itemOrder.Quantity);
+                    itemOrder.LablePrice = (itemOrder.Price * itemOrder.Quantity).ToString("0.0") + "$";
+
                 }
             }
             lbTotal.Text = _price.ToString("0.0") + "$";
@@ -355,7 +355,10 @@ namespace QLBanDoAnNhanh
                     }
                 }
             }
-            
+        }
+        private void Item_DoubleClick(object sender, EventArgs e)
+        {
+            DialogResult dialog = MessageBox.Show("okeelas", "Notify", MessageBoxButtons.OK);
         }
     }
 }
