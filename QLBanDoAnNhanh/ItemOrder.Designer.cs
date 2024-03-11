@@ -29,38 +29,14 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ItemOrder));
-            this.numQuantity = new Guna.UI2.WinForms.Guna2NumericUpDown();
             this.lbName = new System.Windows.Forms.Label();
             this.lbDate = new System.Windows.Forms.Label();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.lbPrice = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.numQuantity)).BeginInit();
+            this.numQuantity = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numQuantity)).BeginInit();
             this.SuspendLayout();
-            // 
-            // numQuantity
-            // 
-            this.numQuantity.BackColor = System.Drawing.Color.Transparent;
-            this.numQuantity.BorderColor = System.Drawing.Color.Tomato;
-            this.numQuantity.BorderRadius = 4;
-            this.numQuantity.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.numQuantity.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.numQuantity.Location = new System.Drawing.Point(280, 18);
-            this.numQuantity.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.numQuantity.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numQuantity.Name = "numQuantity";
-            this.numQuantity.Size = new System.Drawing.Size(71, 31);
-            this.numQuantity.TabIndex = 0;
-            this.numQuantity.UpDownButtonFillColor = System.Drawing.Color.Tomato;
-            this.numQuantity.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             // 
             // lbName
             // 
@@ -106,31 +82,49 @@
             this.lbPrice.TabIndex = 4;
             this.lbPrice.Text = "9.0$";
             // 
+            // numQuantity
+            // 
+            this.numQuantity.BackColor = System.Drawing.Color.Tomato;
+            this.numQuantity.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.numQuantity.Location = new System.Drawing.Point(230, 24);
+            this.numQuantity.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numQuantity.Name = "numQuantity";
+            this.numQuantity.Size = new System.Drawing.Size(120, 22);
+            this.numQuantity.TabIndex = 5;
+            this.numQuantity.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
             // ItemOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.numQuantity);
             this.Controls.Add(this.lbPrice);
             this.Controls.Add(this.guna2PictureBox1);
             this.Controls.Add(this.lbDate);
             this.Controls.Add(this.lbName);
-            this.Controls.Add(this.numQuantity);
             this.Name = "ItemOrder";
             this.Size = new System.Drawing.Size(444, 67);
-            ((System.ComponentModel.ISupportInitialize)(this.numQuantity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numQuantity)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private Guna.UI2.WinForms.Guna2NumericUpDown numQuantity;
         private System.Windows.Forms.Label lbName;
         private System.Windows.Forms.Label lbDate;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private System.Windows.Forms.Label lbPrice;
+        private System.Windows.Forms.NumericUpDown numQuantity;
     }
 }

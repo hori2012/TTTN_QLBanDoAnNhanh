@@ -17,6 +17,7 @@ namespace QLBanDoAnNhanh
         private PosFastFood _posFastFood;
         private Item _itemProduct;
         private ItemOrder _itemOrder;
+        private decimal _price = 0;
         public frmMain()
         {
             InitializeComponent();
@@ -24,7 +25,7 @@ namespace QLBanDoAnNhanh
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            flpOrder.Controls.Clear();
+            //flpOrder.Controls.Clear();
             btnFoods.PerformClick();
         }
 
@@ -46,13 +47,13 @@ namespace QLBanDoAnNhanh
             flpItems.Controls.Clear();
             _posFastFood = new PosFastFood();
             var productFoods = _posFastFood.Products.Where(x => x.IdTypeProduct == 1).ToList();
-            foreach(var item in productFoods)
+            foreach (var item in productFoods)
             {
                 _itemProduct = new Item();
                 _itemProduct.ID = item.IdProduct;
                 _itemProduct._Name = item.NameProduct;
                 _itemProduct.Price = item.PriceProduct.Value.ToString("0.0") + "$";
-                if(item.IsActive == true)
+                if (item.IsActive == true)
                 {
                     _itemProduct.IsActive = false;
                 }
@@ -60,12 +61,16 @@ namespace QLBanDoAnNhanh
                 {
                     _itemProduct.IsActive = true;
                 }
-                using( MemoryStream ms = new MemoryStream(item.Images) ){
+                using (MemoryStream ms = new MemoryStream(item.Images))
+                {
                     Image image = Image.FromStream(ms);
                     _itemProduct.BackgroundImage = image;
                 }
-                flpItems.Controls.Add(_itemProduct);
+                _itemProduct.Tag = item.IdProduct;
                 _itemProduct.Click += new System.EventHandler(this.Item_Click);
+                
+                flpItems.Controls.Add(_itemProduct);
+                CheckItemInOrder();
             }
         }
 
@@ -106,9 +111,11 @@ namespace QLBanDoAnNhanh
                     Image image = Image.FromStream(ms);
                     _itemProduct.BackgroundImage = image;
                 }
-                flpItems.Controls.Add(_itemProduct);
+                _itemProduct.Tag = item.IdProduct;
                 _itemProduct.Click += new System.EventHandler(this.Item_Click);
+                flpItems.Controls.Add(_itemProduct);
             }
+            CheckItemInOrder();
         }
 
         private void btnSnack_Click(object sender, EventArgs e)
@@ -126,6 +133,33 @@ namespace QLBanDoAnNhanh
             btnAdditem.FillColor = Color.Transparent;
             btnAdditem.FillColor2 = Color.Transparent;
             lbCategory.Text = "Snack";
+            flpItems.Controls.Clear();
+            _posFastFood = new PosFastFood();
+            var productFoods = _posFastFood.Products.Where(x => x.IdTypeProduct == 3).ToList();
+            foreach (var item in productFoods)
+            {
+                _itemProduct = new Item();
+                _itemProduct.ID = item.IdProduct;
+                _itemProduct._Name = item.NameProduct;
+                _itemProduct.Price = item.PriceProduct.Value.ToString("0.0") + "$";
+                if (item.IsActive == true)
+                {
+                    _itemProduct.IsActive = false;
+                }
+                else
+                {
+                    _itemProduct.IsActive = true;
+                }
+                using (MemoryStream ms = new MemoryStream(item.Images))
+                {
+                    Image image = Image.FromStream(ms);
+                    _itemProduct.BackgroundImage = image;
+                }
+                _itemProduct.Tag = item.IdProduct;
+                _itemProduct.Click += new System.EventHandler(this.Item_Click);
+                flpItems.Controls.Add(_itemProduct);
+                CheckItemInOrder();
+            }
         }
 
         private void btnDessert_Click(object sender, EventArgs e)
@@ -143,6 +177,33 @@ namespace QLBanDoAnNhanh
             btnAdditem.FillColor = Color.Transparent;
             btnAdditem.FillColor2 = Color.Transparent;
             lbCategory.Text = "Dessert";
+            flpItems.Controls.Clear();
+            _posFastFood = new PosFastFood();
+            var productFoods = _posFastFood.Products.Where(x => x.IdTypeProduct == 4).ToList();
+            foreach (var item in productFoods)
+            {
+                _itemProduct = new Item();
+                _itemProduct.ID = item.IdProduct;
+                _itemProduct._Name = item.NameProduct;
+                _itemProduct.Price = item.PriceProduct.Value.ToString("0.0") + "$";
+                if (item.IsActive == true)
+                {
+                    _itemProduct.IsActive = false;
+                }
+                else
+                {
+                    _itemProduct.IsActive = true;
+                }
+                using (MemoryStream ms = new MemoryStream(item.Images))
+                {
+                    Image image = Image.FromStream(ms);
+                    _itemProduct.BackgroundImage = image;
+                }
+                _itemProduct.Tag = item.IdProduct;
+                _itemProduct.Click += new System.EventHandler(this.Item_Click);
+                flpItems.Controls.Add(_itemProduct);
+                CheckItemInOrder();
+            }
         }
 
         private void btnCombo_Click(object sender, EventArgs e)
@@ -160,6 +221,33 @@ namespace QLBanDoAnNhanh
             btnAdditem.FillColor = Color.Transparent;
             btnAdditem.FillColor2 = Color.Transparent;
             lbCategory.Text = "Combo";
+            flpItems.Controls.Clear();
+            _posFastFood = new PosFastFood();
+            var productFoods = _posFastFood.Products.Where(x => x.IdTypeProduct == 5).ToList();
+            foreach (var item in productFoods)
+            {
+                _itemProduct = new Item();
+                _itemProduct.ID = item.IdProduct;
+                _itemProduct._Name = item.NameProduct;
+                _itemProduct.Price = item.PriceProduct.Value.ToString("0.0") + "$";
+                if (item.IsActive == true)
+                {
+                    _itemProduct.IsActive = false;
+                }
+                else
+                {
+                    _itemProduct.IsActive = true;
+                }
+                using (MemoryStream ms = new MemoryStream(item.Images))
+                {
+                    Image image = Image.FromStream(ms);
+                    _itemProduct.BackgroundImage = image;
+                }
+                _itemProduct.Tag = item.IdProduct;
+                _itemProduct.Click += new System.EventHandler(this.Item_Click);
+                flpItems.Controls.Add(_itemProduct);
+                CheckItemInOrder();
+            }
         }
 
         private void btnAdditem_Click(object sender, EventArgs e)
@@ -181,22 +269,93 @@ namespace QLBanDoAnNhanh
             btnFoods.PerformClick();
         }
 
-        void Item_Click(object sender, EventArgs e)
+        private void Item_Click(object sender, EventArgs e)
         {
             Item itemControl = (Item)sender;
-            if (itemControl.IsValid() == true)
+            if (itemControl.IsValid == false && itemControl.IsActive == false)
             {
+                _price = 0;
+                itemControl.IsValid = true;
                 _itemOrder = new ItemOrder();
                 _itemOrder.ID = itemControl.ID;
                 _itemOrder._Name = itemControl._Name;
                 _itemOrder.Price = itemControl.Price;
                 _itemOrder._Date = DateTime.Now.ToString();
+                _itemOrder.Quantity = 1;
+                _itemOrder.Tag = itemControl.ID;
+                _itemOrder.upDown.ValueChanged += numQuantity_Valuechanged;
                 flpOrder.Controls.Add(_itemOrder);
+                foreach (Control control in flpOrder.Controls)
+                {
+                    if (control is ItemOrder itemOrder)
+                    {
+                        _price += (decimal.Parse(itemOrder.Price.Substring(0, itemOrder.Price.Length - 1)) * itemOrder.Quantity);
+                    }
+                }
             }
             else
             {
-                flpOrder.Controls.Remove(_itemOrder);
+                itemControl.IsValid = false;
+                _price = 0;
+                foreach (Control control in flpOrder.Controls)
+                {
+                    if (control is ItemOrder itemOrder)
+                    {
+                        _price += (decimal.Parse(itemOrder.Price.Substring(0, itemOrder.Price.Length - 1)) + itemOrder.Quantity);
+                    }
+                }
+                foreach (Control control in flpOrder.Controls)
+                {
+                    if (control is ItemOrder itemOrder)
+                    {
+                        if ((int)itemOrder.Tag == (int)itemControl.Tag)
+                        {
+                            _price -= (decimal.Parse(itemOrder.Price.Substring(0, itemOrder.Price.Length - 1)) * itemOrder.Quantity);
+                            flpOrder.Controls.Remove(itemOrder);
+                        }
+                    }
+                }
             }
+            lbTotal.Text = _price.ToString("0.0") + "$";
+            lbLastPrice.Text = _price.ToString("0.0") + "$";
+        }
+        private void numQuantity_Valuechanged(object sender, EventArgs e)
+        {
+            NumericUpDown upDown = sender as NumericUpDown;
+            _price = 0;
+            foreach (Control control in flpOrder.Controls)
+            {
+                if (control is ItemOrder itemOrder)
+                {
+                    if ((int)itemOrder.Tag == (int)upDown.Parent.Tag)
+                    {
+                        itemOrder.Quantity = (int)upDown.Value;
+                    }
+                    _price += (decimal.Parse(itemOrder.Price.Substring(0, itemOrder.Price.Length - 1)) * itemOrder.Quantity);
+                }
+            }
+            lbTotal.Text = _price.ToString("0.0") + "$";
+            lbLastPrice.Text = _price.ToString("0.0") + "$";
+        }
+        private void CheckItemInOrder()
+        {
+            foreach (Control controlItem in flpItems.Controls)
+            {
+                if (controlItem is Item item)
+                {
+                    foreach (Control controlItemOrder in flpOrder.Controls)
+                    {
+                        if (controlItemOrder is ItemOrder itemOrder)
+                        {
+                            if ((int)item.Tag == (int)itemOrder.Tag)
+                            {
+                                item.IsValid = true;
+                            }
+                        }
+                    }
+                }
+            }
+            
         }
     }
 }

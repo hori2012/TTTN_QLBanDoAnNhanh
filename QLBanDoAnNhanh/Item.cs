@@ -43,17 +43,10 @@ namespace QLBanDoAnNhanh
             get { return _isActive; }
             set { _isActive = value; pnSoldout.Visible = value; }
         }
-        public bool IsValid()
+        public bool IsValid
         {
-            if (btnValid.Visible == false)
-            {
-                btnValid.Visible = true;
-            }
-            else
-            {
-                btnValid.Visible = false;
-            }
-            return btnValid.Visible;
+            get { return btnValid.Visible; }
+            set { btnValid.Visible = value; }
         }
 
     }

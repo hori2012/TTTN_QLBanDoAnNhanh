@@ -50,6 +50,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.lbCategory = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
@@ -66,7 +67,6 @@
             this.flpOrder = new System.Windows.Forms.FlowLayoutPanel();
             this.guna2GradientPanel2 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.label3 = new System.Windows.Forms.Label();
-            this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2GradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).BeginInit();
             this.guna2ShadowPanel1.SuspendLayout();
@@ -404,6 +404,18 @@
             this.guna2Panel1.Size = new System.Drawing.Size(1372, 808);
             this.guna2Panel1.TabIndex = 4;
             // 
+            // guna2ControlBox2
+            // 
+            this.guna2ControlBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ControlBox2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
+            this.guna2ControlBox2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(68)))));
+            this.guna2ControlBox2.IconColor = System.Drawing.Color.Black;
+            this.guna2ControlBox2.Location = new System.Drawing.Point(1283, 0);
+            this.guna2ControlBox2.Name = "guna2ControlBox2";
+            this.guna2ControlBox2.Size = new System.Drawing.Size(45, 29);
+            this.guna2ControlBox2.TabIndex = 11;
+            // 
             // lbCategory
             // 
             this.lbCategory.AutoSize = true;
@@ -476,9 +488,9 @@
             this.lbLastPrice.ForeColor = System.Drawing.Color.Tomato;
             this.lbLastPrice.Location = new System.Drawing.Point(330, 120);
             this.lbLastPrice.Name = "lbLastPrice";
-            this.lbLastPrice.Size = new System.Drawing.Size(86, 32);
+            this.lbLastPrice.Size = new System.Drawing.Size(70, 32);
             this.lbLastPrice.TabIndex = 5;
-            this.lbLastPrice.Text = "36.0$";
+            this.lbLastPrice.Text = "0.0$";
             // 
             // lbCouponPrice
             // 
@@ -487,9 +499,9 @@
             this.lbCouponPrice.ForeColor = System.Drawing.Color.Tomato;
             this.lbCouponPrice.Location = new System.Drawing.Point(378, 63);
             this.lbCouponPrice.Name = "lbCouponPrice";
-            this.lbCouponPrice.Size = new System.Drawing.Size(44, 18);
+            this.lbCouponPrice.Size = new System.Drawing.Size(36, 18);
             this.lbCouponPrice.TabIndex = 4;
-            this.lbCouponPrice.Text = "36.0$";
+            this.lbCouponPrice.Text = "0.0$";
             // 
             // label5
             // 
@@ -509,9 +521,9 @@
             this.lbTotal.ForeColor = System.Drawing.Color.Gray;
             this.lbTotal.Location = new System.Drawing.Point(378, 14);
             this.lbTotal.Name = "lbTotal";
-            this.lbTotal.Size = new System.Drawing.Size(44, 18);
+            this.lbTotal.Size = new System.Drawing.Size(36, 18);
             this.lbTotal.TabIndex = 1;
-            this.lbTotal.Text = "36.0$";
+            this.lbTotal.Text = "0.0$";
             // 
             // label4
             // 
@@ -587,18 +599,6 @@
             this.label3.Size = new System.Drawing.Size(31, 391);
             this.label3.TabIndex = 0;
             this.label3.Text = " WELCOME    TO    YOU  !!";
-            // 
-            // guna2ControlBox2
-            // 
-            this.guna2ControlBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBox2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
-            this.guna2ControlBox2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(68)))));
-            this.guna2ControlBox2.IconColor = System.Drawing.Color.Black;
-            this.guna2ControlBox2.Location = new System.Drawing.Point(1283, 0);
-            this.guna2ControlBox2.Name = "guna2ControlBox2";
-            this.guna2ControlBox2.Size = new System.Drawing.Size(45, 29);
-            this.guna2ControlBox2.TabIndex = 11;
             // 
             // frmMain
             // 

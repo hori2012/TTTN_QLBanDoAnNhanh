@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Guna.UI2.WinForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,7 +19,7 @@ namespace QLBanDoAnNhanh
         private string _price;
         private string _name;
         private string _date;
-        private int quantity;
+        private int _quantity;
         public ItemOrder()
         {
             InitializeComponent();
@@ -46,8 +47,8 @@ namespace QLBanDoAnNhanh
         }
         public int Quantity
         {
-            get { return quantity; }
-            set { quantity = value; numQuantity.Value = value; }
+            get { return _quantity; }
+            set { _quantity = value; }
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -58,6 +59,10 @@ namespace QLBanDoAnNhanh
             {
                 e.Graphics.DrawLine(pen, 0, Height - 1, Width, Height - 1);
             }
+        }
+        public NumericUpDown upDown
+        {
+            get { return numQuantity; }
         }
     }
 }
