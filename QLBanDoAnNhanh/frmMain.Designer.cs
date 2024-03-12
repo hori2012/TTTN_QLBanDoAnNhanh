@@ -45,7 +45,7 @@
             this.guna2GradientPanel4 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.lbUser = new System.Windows.Forms.Label();
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.picSearch = new Guna.UI2.WinForms.Guna2PictureBox();
             this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -54,10 +54,9 @@
             this.lbCategory = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.cbCoupons = new System.Windows.Forms.CheckBox();
             this.btnPay = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.lbLastPrice = new System.Windows.Forms.Label();
-            this.lbCouponPrice = new System.Windows.Forms.Label();
+            this.lbVAT = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.lbTotal = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -67,13 +66,14 @@
             this.flpOrder = new System.Windows.Forms.FlowLayoutPanel();
             this.guna2GradientPanel2 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.label3 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.guna2GradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).BeginInit();
             this.guna2ShadowPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
             this.guna2GradientPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picSearch)).BeginInit();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.guna2GradientPanel3.SuspendLayout();
@@ -274,7 +274,7 @@
             this.guna2ShadowPanel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2ShadowPanel1.Controls.Add(this.guna2PictureBox2);
             this.guna2ShadowPanel1.Controls.Add(this.guna2GradientPanel4);
-            this.guna2ShadowPanel1.Controls.Add(this.guna2PictureBox1);
+            this.guna2ShadowPanel1.Controls.Add(this.picSearch);
             this.guna2ShadowPanel1.Controls.Add(this.txtSearch);
             this.guna2ShadowPanel1.Controls.Add(this.label2);
             this.guna2ShadowPanel1.Controls.Add(this.label1);
@@ -315,11 +315,11 @@
             // 
             this.lbUser.AutoSize = true;
             this.lbUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbUser.Location = new System.Drawing.Point(71, 21);
+            this.lbUser.Location = new System.Drawing.Point(89, 21);
             this.lbUser.Name = "lbUser";
-            this.lbUser.Size = new System.Drawing.Size(79, 18);
+            this.lbUser.Size = new System.Drawing.Size(49, 18);
             this.lbUser.TabIndex = 1;
-            this.lbUser.Text = "Cao Nam";
+            this.lbUser.Text = "Login";
             // 
             // guna2CirclePictureBox1
             // 
@@ -333,37 +333,40 @@
             this.guna2CirclePictureBox1.TabIndex = 0;
             this.guna2CirclePictureBox1.TabStop = false;
             // 
-            // guna2PictureBox1
+            // picSearch
             // 
-            this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
-            this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(270, 27);
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(24, 38);
-            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2PictureBox1.TabIndex = 3;
-            this.guna2PictureBox1.TabStop = false;
+            this.picSearch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picSearch.Image = ((System.Drawing.Image)(resources.GetObject("picSearch.Image")));
+            this.picSearch.ImageRotate = 0F;
+            this.picSearch.Location = new System.Drawing.Point(270, 27);
+            this.picSearch.Name = "picSearch";
+            this.picSearch.Size = new System.Drawing.Size(24, 38);
+            this.picSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picSearch.TabIndex = 3;
+            this.picSearch.TabStop = false;
+            this.picSearch.Click += new System.EventHandler(this.picSearch_Click);
             // 
             // txtSearch
             // 
             this.txtSearch.BorderThickness = 0;
             this.txtSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtSearch.DefaultText = "Search for menu";
+            this.txtSearch.DefaultText = "";
             this.txtSearch.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txtSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtSearch.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.txtSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtSearch.Location = new System.Drawing.Point(301, 27);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.PasswordChar = '\0';
-            this.txtSearch.PlaceholderText = "";
+            this.txtSearch.PlaceholderText = "Search for menu";
             this.txtSearch.SelectedText = "";
             this.txtSearch.Size = new System.Drawing.Size(358, 38);
             this.txtSearch.TabIndex = 2;
+            this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyDown);
             // 
             // label2
             // 
@@ -438,28 +441,17 @@
             // guna2Panel2
             // 
             this.guna2Panel2.BackColor = System.Drawing.Color.White;
-            this.guna2Panel2.Controls.Add(this.cbCoupons);
+            this.guna2Panel2.Controls.Add(this.label8);
             this.guna2Panel2.Controls.Add(this.btnPay);
             this.guna2Panel2.Controls.Add(this.lbLastPrice);
-            this.guna2Panel2.Controls.Add(this.lbCouponPrice);
+            this.guna2Panel2.Controls.Add(this.lbVAT);
             this.guna2Panel2.Controls.Add(this.label5);
             this.guna2Panel2.Controls.Add(this.lbTotal);
             this.guna2Panel2.Controls.Add(this.label4);
             this.guna2Panel2.Location = new System.Drawing.Point(892, 529);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(477, 246);
+            this.guna2Panel2.Size = new System.Drawing.Size(477, 267);
             this.guna2Panel2.TabIndex = 8;
-            // 
-            // cbCoupons
-            // 
-            this.cbCoupons.AutoSize = true;
-            this.cbCoupons.ForeColor = System.Drawing.Color.Gray;
-            this.cbCoupons.Location = new System.Drawing.Point(24, 64);
-            this.cbCoupons.Name = "cbCoupons";
-            this.cbCoupons.Size = new System.Drawing.Size(86, 20);
-            this.cbCoupons.TabIndex = 7;
-            this.cbCoupons.Text = "Coupons:";
-            this.cbCoupons.UseVisualStyleBackColor = true;
             // 
             // btnPay
             // 
@@ -492,16 +484,16 @@
             this.lbLastPrice.TabIndex = 5;
             this.lbLastPrice.Text = "0.0$";
             // 
-            // lbCouponPrice
+            // lbVAT
             // 
-            this.lbCouponPrice.AutoSize = true;
-            this.lbCouponPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCouponPrice.ForeColor = System.Drawing.Color.Tomato;
-            this.lbCouponPrice.Location = new System.Drawing.Point(394, 63);
-            this.lbCouponPrice.Name = "lbCouponPrice";
-            this.lbCouponPrice.Size = new System.Drawing.Size(36, 18);
-            this.lbCouponPrice.TabIndex = 4;
-            this.lbCouponPrice.Text = "0.0$";
+            this.lbVAT.AutoSize = true;
+            this.lbVAT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbVAT.ForeColor = System.Drawing.Color.Tomato;
+            this.lbVAT.Location = new System.Drawing.Point(394, 63);
+            this.lbVAT.Name = "lbVAT";
+            this.lbVAT.Size = new System.Drawing.Size(36, 18);
+            this.lbVAT.TabIndex = 4;
+            this.lbVAT.Text = "0.0$";
             // 
             // label5
             // 
@@ -553,7 +545,7 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(18, 10);
+            this.label6.Location = new System.Drawing.Point(156, 13);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(141, 29);
             this.label6.TabIndex = 4;
@@ -565,7 +557,7 @@
             this.flpItems.BackColor = System.Drawing.Color.White;
             this.flpItems.Location = new System.Drawing.Point(174, 170);
             this.flpItems.Name = "flpItems";
-            this.flpItems.Size = new System.Drawing.Size(695, 605);
+            this.flpItems.Size = new System.Drawing.Size(670, 635);
             this.flpItems.TabIndex = 5;
             // 
             // flpOrder
@@ -600,6 +592,17 @@
             this.label3.TabIndex = 0;
             this.label3.Text = " WELCOME    TO    YOU  !!";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Gray;
+            this.label8.Location = new System.Drawing.Point(21, 64);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(78, 18);
+            this.label8.TabIndex = 7;
+            this.label8.Text = "VAT(5%):";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -612,7 +615,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmMain";
+            this.Text = " POS HOME";
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.guna2GradientPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).EndInit();
@@ -622,7 +625,7 @@
             this.guna2GradientPanel4.ResumeLayout(false);
             this.guna2GradientPanel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picSearch)).EndInit();
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             this.guna2Panel2.ResumeLayout(false);
@@ -649,7 +652,7 @@
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2TextBox txtSearch;
-        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
+        private Guna.UI2.WinForms.Guna2PictureBox picSearch;
         private System.Windows.Forms.FlowLayoutPanel flpItems;
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel2;
         private System.Windows.Forms.Label label3;
@@ -660,18 +663,18 @@
         private System.Windows.Forms.Label lbTotal;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lbLastPrice;
-        private System.Windows.Forms.Label lbCouponPrice;
+        private System.Windows.Forms.Label lbVAT;
         private System.Windows.Forms.Label label5;
         private Guna.UI2.WinForms.Guna2GradientTileButton btnPay;
         private System.Windows.Forms.Label label6;
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
         private System.Windows.Forms.Label lbUser;
-        private System.Windows.Forms.CheckBox cbCoupons;
         private System.Windows.Forms.Label lbCategory;
         private System.Windows.Forms.Label label7;
         private Guna.UI2.WinForms.Guna2GradientTileButton btnAdditem;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox3;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox2;
+        private System.Windows.Forms.Label label8;
     }
 }

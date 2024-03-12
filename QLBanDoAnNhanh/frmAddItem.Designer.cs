@@ -42,8 +42,8 @@
             this.lbType = new System.Windows.Forms.Label();
             this.cbType = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.tbDecript = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.errorCheck = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.picProduct)).BeginInit();
             this.guna2Panel1.SuspendLayout();
@@ -220,17 +220,6 @@
             this.guna2Panel1.Size = new System.Drawing.Size(960, 409);
             this.guna2Panel1.TabIndex = 19;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(309, 221);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(117, 22);
-            this.label1.TabIndex = 20;
-            this.label1.Text = "Decriptions:";
-            // 
             // tbDecript
             // 
             this.tbDecript.BorderRadius = 4;
@@ -253,6 +242,17 @@
             this.tbDecript.Size = new System.Drawing.Size(251, 188);
             this.tbDecript.TabIndex = 20;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(309, 221);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(117, 22);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "Decriptions:";
+            // 
             // errorCheck
             // 
             this.errorCheck.ContainerControl = this;
@@ -273,7 +273,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmAddItem";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "frmAddItem";
+            this.Text = "Add New Item";
             this.Load += new System.EventHandler(this.frmAddItem_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picProduct)).EndInit();
             this.guna2Panel1.ResumeLayout(false);

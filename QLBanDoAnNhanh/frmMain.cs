@@ -18,6 +18,7 @@ namespace QLBanDoAnNhanh
         private Item _itemProduct;
         private ItemOrder _itemOrder;
         private decimal _price = 0;
+        private int _category;
         public frmMain()
         {
             InitializeComponent();
@@ -44,10 +45,11 @@ namespace QLBanDoAnNhanh
             btnAdditem.FillColor = Color.Transparent;
             btnAdditem.FillColor2 = Color.Transparent;
             lbCategory.Text = "Foods";
+            _category = 1;
             flpItems.Controls.Clear();
             _posFastFood = new PosFastFood();
-            var productFoods = _posFastFood.Products.Where(x => x.IdTypeProduct == 1).ToList();
-            foreach (var item in productFoods)
+            var productItems = _posFastFood.Products.Where(x => x.IdTypeProduct == 1).ToList();
+            foreach (var item in productItems)
             {
                 _itemProduct = new Item();
                 _itemProduct.ID = item.IdProduct;
@@ -69,7 +71,7 @@ namespace QLBanDoAnNhanh
                 }
                 _itemProduct.Tag = item.IdProduct;
                 _itemProduct.Click += new System.EventHandler(this.Item_Click);
-                _itemProduct.DoubleClick += Item_DoubleClick;
+                _itemProduct.MouseDown += Item_RightClick;
                 flpItems.Controls.Add(_itemProduct);
                 CheckItemInOrder();
             }
@@ -90,10 +92,11 @@ namespace QLBanDoAnNhanh
             btnAdditem.FillColor = Color.Transparent;
             btnAdditem.FillColor2 = Color.Transparent;
             lbCategory.Text = "Drink";
+            _category = 2;
             flpItems.Controls.Clear();
             _posFastFood = new PosFastFood();
-            var productFoods = _posFastFood.Products.Where(x => x.IdTypeProduct == 2).ToList();
-            foreach (var item in productFoods)
+            var productItems = _posFastFood.Products.Where(x => x.IdTypeProduct == 2).ToList();
+            foreach (var item in productItems)
             {
                 _itemProduct = new Item();
                 _itemProduct.ID = item.IdProduct;
@@ -115,6 +118,7 @@ namespace QLBanDoAnNhanh
                 }
                 _itemProduct.Tag = item.IdProduct;
                 _itemProduct.Click += new System.EventHandler(this.Item_Click);
+                _itemProduct.MouseDown += Item_RightClick;
                 flpItems.Controls.Add(_itemProduct);
             }
             CheckItemInOrder();
@@ -135,10 +139,11 @@ namespace QLBanDoAnNhanh
             btnAdditem.FillColor = Color.Transparent;
             btnAdditem.FillColor2 = Color.Transparent;
             lbCategory.Text = "Snack";
+            _category = 3;
             flpItems.Controls.Clear();
             _posFastFood = new PosFastFood();
-            var productFoods = _posFastFood.Products.Where(x => x.IdTypeProduct == 3).ToList();
-            foreach (var item in productFoods)
+            var productItems = _posFastFood.Products.Where(x => x.IdTypeProduct == 3).ToList();
+            foreach (var item in productItems)
             {
                 _itemProduct = new Item();
                 _itemProduct.ID = item.IdProduct;
@@ -160,6 +165,7 @@ namespace QLBanDoAnNhanh
                 }
                 _itemProduct.Tag = item.IdProduct;
                 _itemProduct.Click += new System.EventHandler(this.Item_Click);
+                _itemProduct.MouseDown += Item_RightClick;
                 flpItems.Controls.Add(_itemProduct);
                 CheckItemInOrder();
             }
@@ -180,10 +186,11 @@ namespace QLBanDoAnNhanh
             btnAdditem.FillColor = Color.Transparent;
             btnAdditem.FillColor2 = Color.Transparent;
             lbCategory.Text = "Dessert";
+            _category = 4;
             flpItems.Controls.Clear();
             _posFastFood = new PosFastFood();
-            var productFoods = _posFastFood.Products.Where(x => x.IdTypeProduct == 4).ToList();
-            foreach (var item in productFoods)
+            var productItems = _posFastFood.Products.Where(x => x.IdTypeProduct == 4).ToList();
+            foreach (var item in productItems)
             {
                 _itemProduct = new Item();
                 _itemProduct.ID = item.IdProduct;
@@ -205,6 +212,7 @@ namespace QLBanDoAnNhanh
                 }
                 _itemProduct.Tag = item.IdProduct;
                 _itemProduct.Click += new System.EventHandler(this.Item_Click);
+                _itemProduct.MouseDown += Item_RightClick;
                 flpItems.Controls.Add(_itemProduct);
                 CheckItemInOrder();
             }
@@ -225,10 +233,11 @@ namespace QLBanDoAnNhanh
             btnAdditem.FillColor = Color.Transparent;
             btnAdditem.FillColor2 = Color.Transparent;
             lbCategory.Text = "Combo";
+            _category = 5;
             flpItems.Controls.Clear();
             _posFastFood = new PosFastFood();
-            var productFoods = _posFastFood.Products.Where(x => x.IdTypeProduct == 5).ToList();
-            foreach (var item in productFoods)
+            var productItems = _posFastFood.Products.Where(x => x.IdTypeProduct == 5).ToList();
+            foreach (var item in productItems)
             {
                 _itemProduct = new Item();
                 _itemProduct.ID = item.IdProduct;
@@ -250,6 +259,7 @@ namespace QLBanDoAnNhanh
                 }
                 _itemProduct.Tag = item.IdProduct;
                 _itemProduct.Click += new System.EventHandler(this.Item_Click);
+                _itemProduct.MouseDown += Item_RightClick;
                 flpItems.Controls.Add(_itemProduct);
                 CheckItemInOrder();
             }
@@ -314,8 +324,9 @@ namespace QLBanDoAnNhanh
                     }
                 }
             }
+            lbVAT.Text = "-" + ((decimal)0.5 * _price).ToString("0.0") + "$";
             lbTotal.Text = _price.ToString("0.0") + "$";
-            lbLastPrice.Text = _price.ToString("0.0") + "$";
+            lbLastPrice.Text = (_price + ((decimal)0.5 * _price)).ToString("0.0") + "$";
         }
         private void numQuantity_Valuechanged(object sender, EventArgs e)
         {
@@ -334,8 +345,9 @@ namespace QLBanDoAnNhanh
 
                 }
             }
+            lbVAT.Text = "-" + ((decimal)0.5 * _price).ToString("0.0") + "$";
             lbTotal.Text = _price.ToString("0.0") + "$";
-            lbLastPrice.Text = _price.ToString("0.0") + "$";
+            lbLastPrice.Text = (_price+ ((decimal)0.5 * _price)).ToString("0.0") + "$";
         }
         private void CheckItemInOrder()
         {
@@ -356,9 +368,136 @@ namespace QLBanDoAnNhanh
                 }
             }
         }
-        private void Item_DoubleClick(object sender, EventArgs e)
+        private void Item_RightClick(object sender, MouseEventArgs e)
         {
-            DialogResult dialog = MessageBox.Show("okeelas", "Notify", MessageBoxButtons.OK);
+            Item itemProduct = (Item)sender;
+            if (e.Button == MouseButtons.Right)
+            {
+                Form form = new frmItemDetail((int)itemProduct.ID);
+                form.ShowDialog();
+                switch (_category)
+                {
+                    case 1:
+                        btnFoods.PerformClick(); break;
+                    case 2:
+                        btnDrink.PerformClick(); break;
+                    case 3:
+                        btnSnack.PerformClick(); break;
+                    case 4:
+                        btnDessert.PerformClick(); break;
+                    case 5:
+                        btnCombo.PerformClick(); break;
+                }
+            }
+        }
+
+        private void txtSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                _posFastFood = new PosFastFood();
+                var productItem = _posFastFood.Products.Where(x=>x.IdTypeProduct == _category && x.NameProduct.ToLower().Equals(txtSearch.Text.ToLower())).ToList();
+                if (productItem.Count > 0)
+                {
+                    flpItems.Controls.Clear();
+                    foreach (var item in productItem)
+                    {
+                        _itemProduct = new Item();
+                        _itemProduct.ID = item.IdProduct;
+                        _itemProduct._Name = item.NameProduct;
+                        _itemProduct.Price = (decimal)item.PriceProduct;
+                        _itemProduct.LablePrice = item.PriceProduct.Value.ToString("0.0") + "$";
+                        if (item.IsActive == true)
+                        {
+                            _itemProduct.IsActive = false;
+                        }
+                        else
+                        {
+                            _itemProduct.IsActive = true;
+                        }
+                        using (MemoryStream ms = new MemoryStream(item.Images))
+                        {
+                            Image image = Image.FromStream(ms);
+                            _itemProduct.BackgroundImage = image;
+                        }
+                        _itemProduct.Tag = item.IdProduct;
+                        _itemProduct.Click += new System.EventHandler(this.Item_Click);
+                        _itemProduct.MouseDown += Item_RightClick;
+                        flpItems.Controls.Add(_itemProduct);
+                        CheckItemInOrder();
+                    }
+                }
+                else
+                {
+                    switch (_category)
+                    {
+                        case 1:
+                            btnFoods.PerformClick(); break;
+                        case 2:
+                            btnDrink.PerformClick(); break;
+                        case 3:
+                            btnSnack.PerformClick(); break;
+                        case 4:
+                            btnDessert.PerformClick(); break;
+                        case 5:
+                            btnCombo.PerformClick(); break;
+                    }
+                    DialogResult dialog = MessageBox.Show("Can't find this item!");
+                }
+            }
+        }
+
+        private void picSearch_Click(object sender, EventArgs e)
+        {
+            _posFastFood = new PosFastFood();
+            var productItem = _posFastFood.Products.Where(x => x.IdTypeProduct == _category && x.NameProduct.ToLower().Equals(txtSearch.Text.ToLower())).ToList();
+            if (productItem.Count > 0)
+            {
+                flpItems.Controls.Clear();
+                foreach (var item in productItem)
+                {
+                    _itemProduct = new Item();
+                    _itemProduct.ID = item.IdProduct;
+                    _itemProduct._Name = item.NameProduct;
+                    _itemProduct.Price = (decimal)item.PriceProduct;
+                    _itemProduct.LablePrice = item.PriceProduct.Value.ToString("0.0") + "$";
+                    if (item.IsActive == true)
+                    {
+                        _itemProduct.IsActive = false;
+                    }
+                    else
+                    {
+                        _itemProduct.IsActive = true;
+                    }
+                    using (MemoryStream ms = new MemoryStream(item.Images))
+                    {
+                        Image image = Image.FromStream(ms);
+                        _itemProduct.BackgroundImage = image;
+                    }
+                    _itemProduct.Tag = item.IdProduct;
+                    _itemProduct.Click += new System.EventHandler(this.Item_Click);
+                    _itemProduct.MouseDown += Item_RightClick;
+                    flpItems.Controls.Add(_itemProduct);
+                    CheckItemInOrder();
+                }
+            }
+            else
+            {
+                switch (_category)
+                {
+                    case 1:
+                        btnFoods.PerformClick(); break;
+                    case 2:
+                        btnDrink.PerformClick(); break;
+                    case 3:
+                        btnSnack.PerformClick(); break;
+                    case 4:
+                        btnDessert.PerformClick(); break;
+                    case 5:
+                        btnCombo.PerformClick(); break;
+                }
+                DialogResult dialog = MessageBox.Show("Can't find this item!");
+            }
         }
     }
 }

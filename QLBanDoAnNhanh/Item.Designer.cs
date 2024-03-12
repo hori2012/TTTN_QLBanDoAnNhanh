@@ -144,6 +144,7 @@
             this.Controls.Add(this.pnName);
             this.Controls.Add(this.pnPrice);
             this.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Margin = new System.Windows.Forms.Padding(10);
             this.Name = "Item";
             this.Size = new System.Drawing.Size(201, 201);
             this.pnPrice.ResumeLayout(false);
