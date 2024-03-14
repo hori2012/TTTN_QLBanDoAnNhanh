@@ -191,6 +191,7 @@
             this.tbName.SelectedText = "";
             this.tbName.Size = new System.Drawing.Size(254, 35);
             this.tbName.TabIndex = 23;
+            this.tbName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbName_KeyDown);
             this.tbName.Validating += new System.ComponentModel.CancelEventHandler(this.tbName_Validating);
             // 
             // guna2ControlBox1
@@ -251,6 +252,7 @@
             this.tbPrice.SelectedText = "";
             this.tbPrice.Size = new System.Drawing.Size(254, 35);
             this.tbPrice.TabIndex = 24;
+            this.tbPrice.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbPrice_KeyDown);
             this.tbPrice.Validating += new System.ComponentModel.CancelEventHandler(this.tbPrice_Validating);
             // 
             // errorCheck

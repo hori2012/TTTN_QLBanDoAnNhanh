@@ -12,14 +12,15 @@ namespace QLBanDoAnNhanh.Models
         {
         }
 
-        public virtual DbSet<Admintrator> Admintrators { get; set; }
+        public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<RoleEmployee> RoleEmployees { get; set; }
         public virtual DbSet<TypeProduct> TypeProducts { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Admintrator>()
+            modelBuilder.Entity<Employee>()
                 .Property(e => e.Password)
                 .IsUnicode(false);
 
@@ -42,6 +43,10 @@ namespace QLBanDoAnNhanh.Models
 
             modelBuilder.Entity<Product>()
                 .Property(e => e.Decriptions)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<RoleEmployee>()
+                .Property(e => e.NameRole)
                 .IsUnicode(false);
 
             modelBuilder.Entity<TypeProduct>()

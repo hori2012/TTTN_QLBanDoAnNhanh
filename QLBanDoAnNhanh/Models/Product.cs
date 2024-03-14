@@ -33,6 +33,10 @@ namespace QLBanDoAnNhanh.Models
 
         public int IdTypeProduct { get; set; }
 
+        public int? IdEmployee { get; set; }
+
+        public virtual Employee Employee { get; set; }
+
         public virtual TypeProduct TypeProduct { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

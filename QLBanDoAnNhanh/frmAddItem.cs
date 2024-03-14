@@ -16,9 +16,11 @@ namespace QLBanDoAnNhanh
     public partial class frmAddItem : Form
     {
         private PosFastFood _posFastFood;
-        public frmAddItem()
+        private int _idEmployee;
+        public frmAddItem(int idEmployee)
         {
             InitializeComponent();
+            _idEmployee = idEmployee;
         }
 
         private void frmAddItem_Load(object sender, EventArgs e)
@@ -76,6 +78,7 @@ namespace QLBanDoAnNhanh
                 errorCheck.SetError(tbPrice, "");
             }
             product.IdTypeProduct = int.Parse(cbType.SelectedValue.ToString());
+            product.IdEmployee = _idEmployee;
             if(string.IsNullOrWhiteSpace(tbDecript.Text) == false)
             {
                 product.Decriptions = tbDecript.Text;
@@ -117,6 +120,22 @@ namespace QLBanDoAnNhanh
             else
             {
                 errorCheck.SetError(tbPrice, "");
+            }
+        }
+
+        private void tbName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if ((e.KeyCode == Keys.Enter))
+            {
+                btnAdd.PerformClick();
+            }
+        }
+
+        private void tbPrice_KeyDown(object sender, KeyEventArgs e)
+        {
+            if ((e.KeyCode == Keys.Enter))
+            {
+                btnAdd.PerformClick();
             }
         }
     }

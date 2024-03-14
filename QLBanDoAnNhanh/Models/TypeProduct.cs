@@ -21,6 +21,10 @@ namespace QLBanDoAnNhanh.Models
         [StringLength(50)]
         public string NameType { get; set; }
 
+        public int? IdEmployee { get; set; }
+
+        public virtual Employee Employee { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Product> Products { get; set; }
     }

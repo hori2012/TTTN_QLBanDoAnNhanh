@@ -15,13 +15,15 @@ namespace QLBanDoAnNhanh
     public partial class frmMain : Form
     {
         private PosFastFood _posFastFood;
+        private int _idEmployee;
         private Item _itemProduct;
         private ItemOrder _itemOrder;
         private decimal _price = 0;
         private int _category;
-        public frmMain()
+        public frmMain(int idEmployee)
         {
             InitializeComponent();
+            _idEmployee = idEmployee;
         }
 
         private void frmMain_Load(object sender, EventArgs e)
@@ -279,9 +281,18 @@ namespace QLBanDoAnNhanh
             btnCombo.FillColor2 = Color.Transparent;
             btnAdditem.FillColor = Color.FromArgb(249, 130, 68);
             btnAdditem.FillColor2 = Color.FromArgb(247, 72, 115);
-            Form form = new frmAddItem();
-            form.ShowDialog();
-            btnFoods.PerformClick();
+            _posFastFood = new PosFastFood();
+            var role = _posFastFood.Employees.Find(_idEmployee);
+            if (role.IdRole == 1)
+            {
+                Form form = new frmAddItem(_idEmployee);
+                form.ShowDialog();
+                btnFoods.PerformClick();
+            }
+            else
+            {
+                DialogResult dialog = MessageBox.Show("Please log in as a management account!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void Item_Click(object sender, EventArgs e)
@@ -297,6 +308,7 @@ namespace QLBanDoAnNhanh
                 _itemOrder.Price = itemControl.Price;
                 _itemOrder._Date = DateTime.Now.ToString();
                 _itemOrder.Quantity = 1;
+                _itemOrder.Image = _itemProduct.BackgroundImage;
                 _itemOrder.LablePrice = itemControl.Price.ToString("0.0") + "$";
                 _itemOrder.Tag = itemControl.ID;
                 _itemOrder.upDown.ValueChanged += numQuantity_Valuechanged;
@@ -498,6 +510,11 @@ namespace QLBanDoAnNhanh
                 }
                 DialogResult dialog = MessageBox.Show("Can't find this item!");
             }
+        }
+
+        private void btnPay_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

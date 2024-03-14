@@ -54,6 +54,7 @@
             this.lbCategory = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.label8 = new System.Windows.Forms.Label();
             this.btnPay = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.lbLastPrice = new System.Windows.Forms.Label();
             this.lbVAT = new System.Windows.Forms.Label();
@@ -66,7 +67,6 @@
             this.flpOrder = new System.Windows.Forms.FlowLayoutPanel();
             this.guna2GradientPanel2 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.label3 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.guna2GradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).BeginInit();
             this.guna2ShadowPanel1.SuspendLayout();
@@ -453,6 +453,17 @@
             this.guna2Panel2.Size = new System.Drawing.Size(477, 267);
             this.guna2Panel2.TabIndex = 8;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Gray;
+            this.label8.Location = new System.Drawing.Point(21, 64);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(78, 18);
+            this.label8.TabIndex = 7;
+            this.label8.Text = "VAT(5%):";
+            // 
             // btnPay
             // 
             this.btnPay.BorderRadius = 4;
@@ -472,6 +483,7 @@
             this.btnPay.Size = new System.Drawing.Size(131, 68);
             this.btnPay.TabIndex = 6;
             this.btnPay.Text = "Pay Now";
+            this.btnPay.Click += new System.EventHandler(this.btnPay_Click);
             // 
             // lbLastPrice
             // 
@@ -591,17 +603,6 @@
             this.label3.Size = new System.Drawing.Size(31, 391);
             this.label3.TabIndex = 0;
             this.label3.Text = " WELCOME    TO    YOU  !!";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Gray;
-            this.label8.Location = new System.Drawing.Point(21, 64);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(78, 18);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "VAT(5%):";
             // 
             // frmMain
             // 

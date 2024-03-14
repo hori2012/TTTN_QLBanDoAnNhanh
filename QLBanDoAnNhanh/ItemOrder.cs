@@ -20,6 +20,7 @@ namespace QLBanDoAnNhanh
         private string _name;
         private string _date;
         private int _quantity;
+        private Image _image;
         public ItemOrder()
         {
             InitializeComponent();
@@ -51,6 +52,11 @@ namespace QLBanDoAnNhanh
             set { _quantity = value; }
         }
 
+        public Image Image
+        {
+            get { return _image; }
+            set { _image = value; picProduct.Image = value; }
+        }
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);

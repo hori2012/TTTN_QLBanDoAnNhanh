@@ -142,5 +142,21 @@ namespace QLBanDoAnNhanh
                 errorCheck.SetError(tbPrice, "");
             }
         }
+
+        private void tbName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if ((e.KeyCode == Keys.Enter))
+            {
+                btnUpdate.PerformClick();
+            }
+        }
+
+        private void tbPrice_KeyDown(object sender, KeyEventArgs e)
+        {
+            if ((e.KeyCode == Keys.Enter))
+            {
+                btnUpdate.PerformClick();
+            }
+        }
     }
 }

@@ -16,6 +16,7 @@ namespace QLBanDoAnNhanh
     {
         private int _idProduct;
         private PosFastFood _posFastFood;
+        private frmlogin _frmlogin = new frmlogin();
         public frmItemDetail(int idProduct)
         {
             InitializeComponent();
@@ -28,14 +29,14 @@ namespace QLBanDoAnNhanh
             var productItems = _posFastFood.Products.Find(_idProduct);
             if (productItems != null)
             {
-                using(MemoryStream ms = new MemoryStream(productItems.Images))
+                using (MemoryStream ms = new MemoryStream(productItems.Images))
                 {
                     Image image = Image.FromStream(ms);
                     picItem.Image = image;
                 }
                 lbName.Text = productItems.NameProduct;
                 lbPrice.Text = productItems.PriceProduct.Value.ToString("0.0") + "$";
-                if(string.IsNullOrEmpty(productItems.Decriptions) == false)
+                if (string.IsNullOrEmpty(productItems.Decriptions) == false)
                 {
                     lbDecript.Text = productItems.Decriptions;
                 }
@@ -43,7 +44,7 @@ namespace QLBanDoAnNhanh
                 {
                     lbDecript.Text = "N/A";
                 }
-                if(productItems.IsActive == false)
+                if (productItems.IsActive == false)
                 {
                     btnSoldOut.Text = "UnSold";
                 }
@@ -91,7 +92,21 @@ namespace QLBanDoAnNhanh
         }
         private void btnDelete_Click(object sender, EventArgs e)
         {
-
+            this._frmlogin.ShowDialog();
+            if (this._frmlogin.Valid == true)
+            {
+                var itemProduct = _posFastFood.Products.Find(_idProduct);
+                if (itemProduct != null)
+                {
+                    _posFastFood.Products.Remove(itemProduct);
+                    _posFastFood.SaveChanges();
+                    DialogResult dialog = MessageBox.Show("Delete success!");
+                }
+            }
+            else
+            {
+                DialogResult dialog = MessageBox.Show("Wrong password!");
+            }
         }
     }
 }

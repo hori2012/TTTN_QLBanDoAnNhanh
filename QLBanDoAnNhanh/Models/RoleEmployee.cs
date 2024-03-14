@@ -6,30 +6,22 @@ namespace QLBanDoAnNhanh.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Order
+    [Table("RoleEmployee")]
+    public partial class RoleEmployee
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Order()
+        public RoleEmployee()
         {
-            Products = new HashSet<Product>();
+            Employees = new HashSet<Employee>();
         }
 
         [Key]
-        public int IdOrder { get; set; }
+        public int IdRole { get; set; }
 
-        public int? quantity { get; set; }
-
-        [Column(TypeName = "money")]
-        public decimal? Total { get; set; }
-
-        [Column(TypeName = "datetime2")]
-        public DateTime? CreateDate { get; set; }
-
-        public int? IdEmployee { get; set; }
-
-        public virtual Employee Employee { get; set; }
+        [StringLength(100)]
+        public string NameRole { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Product> Products { get; set; }
+        public virtual ICollection<Employee> Employees { get; set; }
     }
 }

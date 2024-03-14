@@ -97,6 +97,12 @@
     <Compile Include="frmItemDetail.Designer.cs">
       <DependentUpon>frmItemDetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmlogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmlogin.Designer.cs">
+      <DependentUpon>frmlogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,10 +121,11 @@
     <Compile Include="ItemOrder.Designer.cs">
       <DependentUpon>ItemOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\Admintrator.cs" />
+    <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\PosFastFood.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\RoleEmployee.cs" />
     <Compile Include="Models\TypeProduct.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -130,6 +137,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmItemDetail.resx">
       <DependentUpon>frmItemDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmlogin.resx">
+      <DependentUpon>frmlogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
