@@ -15,17 +15,18 @@ namespace QLBanDoAnNhanh
     public partial class frmItemDetail : Form
     {
         private int _idProduct;
+        private int _idEmployee;
         private PosFastFood _posFastFood;
-        private frmlogin _frmlogin = new frmlogin();
-        public frmItemDetail(int idProduct)
+        public frmItemDetail(int idProduct, int idEmployee)
         {
             InitializeComponent();
             _idProduct = idProduct;
-            _posFastFood = new PosFastFood();
+            _idEmployee = idEmployee;
         }
 
         private void frmItemDetail_Load(object sender, EventArgs e)
         {
+            _posFastFood = new PosFastFood();
             var productItems = _posFastFood.Products.Find(_idProduct);
             if (productItems != null)
             {
@@ -92,8 +93,8 @@ namespace QLBanDoAnNhanh
         }
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            this._frmlogin.ShowDialog();
-            if (this._frmlogin.Valid == true)
+            var employee = _posFastFood.Employees.Find(_idEmployee);
+            if (employee.IdRole == 1 || string.Compare(employee.RoleEmployee.NameRole, "admin", false) == 0)
             {
                 var itemProduct = _posFastFood.Products.Find(_idProduct);
                 if (itemProduct != null)
@@ -105,7 +106,7 @@ namespace QLBanDoAnNhanh
             }
             else
             {
-                DialogResult dialog = MessageBox.Show("Wrong password!");
+                DialogResult dialog = MessageBox.Show("Please log in as a management account!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

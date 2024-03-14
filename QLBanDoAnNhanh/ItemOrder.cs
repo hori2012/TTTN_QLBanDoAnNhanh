@@ -33,7 +33,7 @@ namespace QLBanDoAnNhanh
         public decimal Price
         {
             get { return _price; }
-            set { _price = value;}
+            set { _price = value; lbRootPrice.Text = value.ToString("0.0") + "$"; }
         }
 
         public string _Name

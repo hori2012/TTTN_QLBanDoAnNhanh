@@ -20,16 +20,21 @@ namespace QLBanDoAnNhanh
         private ItemOrder _itemOrder;
         private decimal _price = 0;
         private int _category;
-        public frmMain(int idEmployee)
+
+        private frmlogin _frmlogin = new frmlogin();
+        public frmMain(int idEmployee, frmlogin frmlogin)
         {
             InitializeComponent();
             _idEmployee = idEmployee;
+            _frmlogin = frmlogin;
         }
 
         private void frmMain_Load(object sender, EventArgs e)
         {
             //flpOrder.Controls.Clear();
             btnFoods.PerformClick();
+            var emp = _posFastFood.Employees.Find(_idEmployee);
+            lbUser.Text = emp.NameEmployee;
         }
 
         private void btnFoods_Click(object sender, EventArgs e)
@@ -50,7 +55,7 @@ namespace QLBanDoAnNhanh
             _category = 1;
             flpItems.Controls.Clear();
             _posFastFood = new PosFastFood();
-            var productItems = _posFastFood.Products.Where(x => x.IdTypeProduct == 1).ToList();
+            var productItems = _posFastFood.Products.Where(x => x.IdTypeProduct == 11).ToList();
             foreach (var item in productItems)
             {
                 _itemProduct = new Item();
@@ -97,7 +102,7 @@ namespace QLBanDoAnNhanh
             _category = 2;
             flpItems.Controls.Clear();
             _posFastFood = new PosFastFood();
-            var productItems = _posFastFood.Products.Where(x => x.IdTypeProduct == 2).ToList();
+            var productItems = _posFastFood.Products.Where(x => x.IdTypeProduct == 12).ToList();
             foreach (var item in productItems)
             {
                 _itemProduct = new Item();
@@ -144,7 +149,7 @@ namespace QLBanDoAnNhanh
             _category = 3;
             flpItems.Controls.Clear();
             _posFastFood = new PosFastFood();
-            var productItems = _posFastFood.Products.Where(x => x.IdTypeProduct == 3).ToList();
+            var productItems = _posFastFood.Products.Where(x => x.IdTypeProduct == 13).ToList();
             foreach (var item in productItems)
             {
                 _itemProduct = new Item();
@@ -191,7 +196,7 @@ namespace QLBanDoAnNhanh
             _category = 4;
             flpItems.Controls.Clear();
             _posFastFood = new PosFastFood();
-            var productItems = _posFastFood.Products.Where(x => x.IdTypeProduct == 4).ToList();
+            var productItems = _posFastFood.Products.Where(x => x.IdTypeProduct == 14).ToList();
             foreach (var item in productItems)
             {
                 _itemProduct = new Item();
@@ -238,7 +243,7 @@ namespace QLBanDoAnNhanh
             _category = 5;
             flpItems.Controls.Clear();
             _posFastFood = new PosFastFood();
-            var productItems = _posFastFood.Products.Where(x => x.IdTypeProduct == 5).ToList();
+            var productItems = _posFastFood.Products.Where(x => x.IdTypeProduct == 15).ToList();
             foreach (var item in productItems)
             {
                 _itemProduct = new Item();
@@ -282,8 +287,8 @@ namespace QLBanDoAnNhanh
             btnAdditem.FillColor = Color.FromArgb(249, 130, 68);
             btnAdditem.FillColor2 = Color.FromArgb(247, 72, 115);
             _posFastFood = new PosFastFood();
-            var role = _posFastFood.Employees.Find(_idEmployee);
-            if (role.IdRole == 1)
+            var employee = _posFastFood.Employees.Find(_idEmployee);
+            if (employee.IdRole == 1 || string.Compare(employee.RoleEmployee.NameRole, "admin", false) == 0)
             {
                 Form form = new frmAddItem(_idEmployee);
                 form.ShowDialog();
@@ -385,7 +390,7 @@ namespace QLBanDoAnNhanh
             Item itemProduct = (Item)sender;
             if (e.Button == MouseButtons.Right)
             {
-                Form form = new frmItemDetail((int)itemProduct.ID);
+                Form form = new frmItemDetail((int)itemProduct.ID, _idEmployee);
                 form.ShowDialog();
                 switch (_category)
                 {
@@ -515,6 +520,23 @@ namespace QLBanDoAnNhanh
         private void btnPay_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void guna2ControlBox1_Click(object sender, EventArgs e)
+        {
+            _frmlogin.Show();
+            this.Close();
+        }
+
+        private void guna2PictureBox2_Click(object sender, EventArgs e)
+        {
+            guna2ControlBox1.PerformClick();
+        }
+
+        private void btnSetting_Click(object sender, EventArgs e)
+        {
+            Form frmchangePass = new frmChangePass(_idEmployee);
+            frmchangePass.ShowDialog();
         }
     }
 }

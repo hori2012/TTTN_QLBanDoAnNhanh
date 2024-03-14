@@ -67,6 +67,7 @@
             this.flpOrder = new System.Windows.Forms.FlowLayoutPanel();
             this.guna2GradientPanel2 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnSetting = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.guna2GradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).BeginInit();
             this.guna2ShadowPanel1.SuspendLayout();
@@ -83,6 +84,7 @@
             // guna2GradientPanel1
             // 
             this.guna2GradientPanel1.BackColor = System.Drawing.Color.White;
+            this.guna2GradientPanel1.Controls.Add(this.btnSetting);
             this.guna2GradientPanel1.Controls.Add(this.guna2PictureBox3);
             this.guna2GradientPanel1.Controls.Add(this.btnAdditem);
             this.guna2GradientPanel1.Controls.Add(this.btnCombo);
@@ -268,6 +270,7 @@
             this.guna2ControlBox1.Name = "guna2ControlBox1";
             this.guna2ControlBox1.Size = new System.Drawing.Size(45, 29);
             this.guna2ControlBox1.TabIndex = 1;
+            this.guna2ControlBox1.Click += new System.EventHandler(this.guna2ControlBox1_Click);
             // 
             // guna2ShadowPanel1
             // 
@@ -298,12 +301,14 @@
             this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.guna2PictureBox2.TabIndex = 5;
             this.guna2PictureBox2.TabStop = false;
+            this.guna2PictureBox2.Click += new System.EventHandler(this.guna2PictureBox2_Click);
             // 
             // guna2GradientPanel4
             // 
             this.guna2GradientPanel4.BorderRadius = 6;
             this.guna2GradientPanel4.Controls.Add(this.lbUser);
             this.guna2GradientPanel4.Controls.Add(this.guna2CirclePictureBox1);
+            this.guna2GradientPanel4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2GradientPanel4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(68)))));
             this.guna2GradientPanel4.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(72)))), ((int)(((byte)(115)))));
             this.guna2GradientPanel4.Location = new System.Drawing.Point(864, 17);
@@ -314,10 +319,10 @@
             // lbUser
             // 
             this.lbUser.AutoSize = true;
-            this.lbUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbUser.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbUser.Location = new System.Drawing.Point(89, 21);
             this.lbUser.Name = "lbUser";
-            this.lbUser.Size = new System.Drawing.Size(49, 18);
+            this.lbUser.Size = new System.Drawing.Size(48, 20);
             this.lbUser.TabIndex = 1;
             this.lbUser.Text = "Login";
             // 
@@ -422,19 +427,20 @@
             // lbCategory
             // 
             this.lbCategory.AutoSize = true;
+            this.lbCategory.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbCategory.Location = new System.Drawing.Point(277, 143);
             this.lbCategory.Name = "lbCategory";
-            this.lbCategory.Size = new System.Drawing.Size(46, 16);
+            this.lbCategory.Size = new System.Drawing.Size(44, 17);
             this.lbCategory.TabIndex = 10;
             this.lbCategory.Text = "Foods";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(178, 143);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(82, 16);
+            this.label7.Size = new System.Drawing.Size(77, 17);
             this.label7.TabIndex = 9;
             this.label7.Text = "Category >";
             // 
@@ -456,11 +462,11 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Gray;
             this.label8.Location = new System.Drawing.Point(21, 64);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(78, 18);
+            this.label8.Size = new System.Drawing.Size(75, 20);
             this.label8.TabIndex = 7;
             this.label8.Text = "VAT(5%):";
             // 
@@ -488,55 +494,55 @@
             // lbLastPrice
             // 
             this.lbLastPrice.AutoSize = true;
-            this.lbLastPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbLastPrice.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbLastPrice.ForeColor = System.Drawing.Color.Tomato;
             this.lbLastPrice.Location = new System.Drawing.Point(346, 120);
             this.lbLastPrice.Name = "lbLastPrice";
-            this.lbLastPrice.Size = new System.Drawing.Size(70, 32);
+            this.lbLastPrice.Size = new System.Drawing.Size(68, 38);
             this.lbLastPrice.TabIndex = 5;
             this.lbLastPrice.Text = "0.0$";
             // 
             // lbVAT
             // 
             this.lbVAT.AutoSize = true;
-            this.lbVAT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbVAT.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbVAT.ForeColor = System.Drawing.Color.Tomato;
             this.lbVAT.Location = new System.Drawing.Point(394, 63);
             this.lbVAT.Name = "lbVAT";
-            this.lbVAT.Size = new System.Drawing.Size(36, 18);
+            this.lbVAT.Size = new System.Drawing.Size(36, 20);
             this.lbVAT.TabIndex = 4;
             this.lbVAT.Text = "0.0$";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Gray;
             this.label5.Location = new System.Drawing.Point(18, 120);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(92, 32);
+            this.label5.Size = new System.Drawing.Size(73, 31);
             this.label5.TabIndex = 3;
             this.label5.Text = "Total:";
             // 
             // lbTotal
             // 
             this.lbTotal.AutoSize = true;
-            this.lbTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTotal.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTotal.ForeColor = System.Drawing.Color.Gray;
             this.lbTotal.Location = new System.Drawing.Point(394, 14);
             this.lbTotal.Name = "lbTotal";
-            this.lbTotal.Size = new System.Drawing.Size(36, 18);
+            this.lbTotal.Size = new System.Drawing.Size(36, 20);
             this.lbTotal.TabIndex = 1;
             this.lbTotal.Text = "0.0$";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Gray;
             this.label4.Location = new System.Drawing.Point(18, 14);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(80, 18);
+            this.label4.Size = new System.Drawing.Size(74, 20);
             this.label4.TabIndex = 0;
             this.label4.Text = "SubTotal:";
             // 
@@ -555,11 +561,11 @@
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(156, 13);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(141, 29);
+            this.label6.Size = new System.Drawing.Size(129, 31);
             this.label6.TabIndex = 4;
             this.label6.Text = "New Order";
             // 
@@ -603,6 +609,29 @@
             this.label3.Size = new System.Drawing.Size(31, 391);
             this.label3.TabIndex = 0;
             this.label3.Text = " WELCOME    TO    YOU  !!";
+            // 
+            // btnSetting
+            // 
+            this.btnSetting.BorderRadius = 5;
+            this.btnSetting.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSetting.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnSetting.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnSetting.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnSetting.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnSetting.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnSetting.FillColor = System.Drawing.Color.Transparent;
+            this.btnSetting.FillColor2 = System.Drawing.Color.Transparent;
+            this.btnSetting.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnSetting.ForeColor = System.Drawing.Color.Black;
+            this.btnSetting.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.btnSetting.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(68)))));
+            this.btnSetting.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(72)))), ((int)(((byte)(115)))));
+            this.btnSetting.Image = ((System.Drawing.Image)(resources.GetObject("btnSetting.Image")));
+            this.btnSetting.Location = new System.Drawing.Point(8, 690);
+            this.btnSetting.Name = "btnSetting";
+            this.btnSetting.Size = new System.Drawing.Size(93, 60);
+            this.btnSetting.TabIndex = 8;
+            this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click);
             // 
             // frmMain
             // 
@@ -677,5 +706,6 @@
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox3;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox2;
         private System.Windows.Forms.Label label8;
+        private Guna.UI2.WinForms.Guna2GradientTileButton btnSetting;
     }
 }
