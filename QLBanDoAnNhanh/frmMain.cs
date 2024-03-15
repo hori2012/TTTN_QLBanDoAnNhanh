@@ -22,19 +22,23 @@ namespace QLBanDoAnNhanh
         private int _category;
 
         private frmlogin _frmlogin = new frmlogin();
-        public frmMain(int idEmployee, frmlogin frmlogin)
+        //public frmMain(int idEmployee, frmlogin frmlogin)
+        //{
+        //    InitializeComponent();
+        //    _idEmployee = idEmployee;
+        //    _frmlogin = frmlogin;
+        //}
+        public frmMain()
         {
             InitializeComponent();
-            _idEmployee = idEmployee;
-            _frmlogin = frmlogin;
         }
 
         private void frmMain_Load(object sender, EventArgs e)
         {
             //flpOrder.Controls.Clear();
             btnFoods.PerformClick();
-            var emp = _posFastFood.Employees.Find(_idEmployee);
-            lbUser.Text = emp.NameEmployee;
+            //var emp = _posFastFood.Employees.Find(_idEmployee);
+            //lbUser.Text = emp.NameEmployee;
         }
 
         private void btnFoods_Click(object sender, EventArgs e)
@@ -341,9 +345,9 @@ namespace QLBanDoAnNhanh
                     }
                 }
             }
-            lbVAT.Text = "-" + ((decimal)0.5 * _price).ToString("0.0") + "$";
-            lbTotal.Text = _price.ToString("0.0") + "$";
-            lbLastPrice.Text = (_price + ((decimal)0.5 * _price)).ToString("0.0") + "$";
+            lbVAT.Text = "-" + ((decimal)0.05 * _price).ToString("0.0") + "$";
+            lbTotal.Text = _price.ToString("0.00") + "$";
+            lbLastPrice.Text = (_price + ((decimal)0.05 * _price)).ToString("0.00") + "$";
         }
         private void numQuantity_Valuechanged(object sender, EventArgs e)
         {
@@ -362,9 +366,9 @@ namespace QLBanDoAnNhanh
 
                 }
             }
-            lbVAT.Text = "-" + ((decimal)0.5 * _price).ToString("0.0") + "$";
-            lbTotal.Text = _price.ToString("0.0") + "$";
-            lbLastPrice.Text = (_price+ ((decimal)0.5 * _price)).ToString("0.0") + "$";
+            lbVAT.Text = "-" + ((decimal)0.05 * _price).ToString("0.0") + "$";
+            lbTotal.Text = _price.ToString("0.00") + "$";
+            lbLastPrice.Text = (_price + ((decimal)00.5 * _price)).ToString("0.00") + "$";
         }
         private void CheckItemInOrder()
         {
@@ -413,7 +417,7 @@ namespace QLBanDoAnNhanh
             if (e.KeyCode == Keys.Enter)
             {
                 _posFastFood = new PosFastFood();
-                var productItem = _posFastFood.Products.Where(x=>x.IdTypeProduct == _category && x.NameProduct.ToLower().Equals(txtSearch.Text.ToLower())).ToList();
+                var productItem = _posFastFood.Products.Where(x => x.IdTypeProduct == _category && x.NameProduct.ToLower().Equals(txtSearch.Text.ToLower())).ToList();
                 if (productItem.Count > 0)
                 {
                     flpItems.Controls.Clear();
@@ -537,6 +541,51 @@ namespace QLBanDoAnNhanh
         {
             Form frmchangePass = new frmChangePass(_idEmployee);
             frmchangePass.ShowDialog();
+        }
+
+        private void btnInvoice_Click(object sender, EventArgs e)
+        {
+            printPreview.Document = printDocument;
+            printPreview.ShowDialog();
+        }
+
+        private void printDocument_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            e.Graphics.DrawString("FOODS HORI", new Font("Arial", 28, FontStyle.Bold), Brushes.Black, new Point(270, 10));
+            e.Graphics.DrawString("Invoice", new Font("Arial", 18, FontStyle.Bold), Brushes.Black, new Point(350, 50));
+            e.Graphics.DrawString("Phone: +84396531897", new Font("Arial", 13, FontStyle.Regular), Brushes.Black, new Point(50, 80));
+            e.Graphics.DrawString("Email: foods-hori@gmail.com", new Font("Arial", 13, FontStyle.Regular), Brushes.Black, new Point(50, 110));
+            e.Graphics.DrawString("Address: 449 Street, Tang Nhon Phu A Ward, Thu Đuc City", new Font("Arial", 13, FontStyle.Regular), Brushes.Black, new Point(50, 140));
+            e.Graphics.DrawString("______________________________________________________________________________________________________________________________________________________", new Font("Arial", 13, FontStyle.Bold), Brushes.Black, new Point(0, 160));
+            e.Graphics.DrawString("Date: " + DateTime.Now.ToString(), new Font("Arial", 13, FontStyle.Regular), Brushes.Black, new Point(50, 190));
+            e.Graphics.DrawString("Employee: ", new Font("Arial", 13, FontStyle.Regular), Brushes.Black, new Point(50, 220));
+            e.Graphics.DrawString("----------------------------------------------------------------------------------------------------------------------", new Font("Arial", 13, FontStyle.Regular), Brushes.Black, new Point(50, 250));
+            e.Graphics.DrawString("Item", new Font("Arial", 13, FontStyle.Regular), Brushes.Black, new Point(60, 280));
+            e.Graphics.DrawString("Qty", new Font("Arial", 13, FontStyle.Regular), Brushes.Black, new Point(250, 280));
+            e.Graphics.DrawString("Price", new Font("Arial", 13, FontStyle.Regular), Brushes.Black, new Point(450, 280));
+            e.Graphics.DrawString("Amount", new Font("Arial", 13, FontStyle.Regular), Brushes.Black, new Point(660, 280));
+            e.Graphics.DrawString("----------------------------------------------------------------------------------------------------------------------", new Font("Arial", 13, FontStyle.Regular), Brushes.Black, new Point(50, 310));
+            int y = 310;
+            decimal price = 0;
+            foreach (Control controlOrder in flpOrder.Controls)
+            {
+                if (controlOrder is ItemOrder order)
+                {
+                    e.Graphics.DrawString(order._Name, new Font("Arial", 13, FontStyle.Regular), Brushes.Black, new Point(60, y + 30));
+                    e.Graphics.DrawString(order.Quantity.ToString(), new Font("Arial", 13, FontStyle.Regular), Brushes.Black, new Point(250, y + 30));
+                    e.Graphics.DrawString(order.Price.ToString("0.0") + "$", new Font("Arial", 13, FontStyle.Regular), Brushes.Black, new Point(450, y + 30));
+                    e.Graphics.DrawString((order.Quantity * order.Price).ToString("0.0") + "$", new Font("Arial", 13, FontStyle.Regular), Brushes.Black, new Point(660, y + 30));
+                    y += 30;
+                    price += (order.Quantity * order.Price);
+                }
+            }
+            e.Graphics.DrawString("----------------------------------------------------------------------------------------------------------------------", new Font("Arial", 13, FontStyle.Regular), Brushes.Black, new Point(50, y + 30));
+            e.Graphics.DrawString("Bill toal", new Font("Arial", 13, FontStyle.Regular), Brushes.Black, new Point(60, y + 60));
+            e.Graphics.DrawString(price.ToString("0.0") + "$", new Font("Arial", 13, FontStyle.Regular), Brushes.Black, new Point(660, y + 60));
+            e.Graphics.DrawString("VAT(5%)", new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(60, y + 90));
+            e.Graphics.DrawString("+ " + ((decimal)0.05 * price).ToString("0.00") + "$", new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(660, y + 90));
+            e.Graphics.DrawString("Last bill", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(60, y + 120));
+            e.Graphics.DrawString(((decimal)0.05 * price + price).ToString("0.00") + "$", new Font("Arial", 13, FontStyle.Regular), Brushes.Black, new Point(660, y + 120));
         }
     }
 }

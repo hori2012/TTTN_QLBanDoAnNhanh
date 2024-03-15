@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.btnSetting = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.guna2PictureBox3 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.btnAdditem = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.btnCombo = new Guna.UI2.WinForms.Guna2GradientTileButton();
@@ -55,7 +56,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.label8 = new System.Windows.Forms.Label();
-            this.btnPay = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.lbLastPrice = new System.Windows.Forms.Label();
             this.lbVAT = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -67,7 +67,10 @@
             this.flpOrder = new System.Windows.Forms.FlowLayoutPanel();
             this.guna2GradientPanel2 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnSetting = new Guna.UI2.WinForms.Guna2GradientTileButton();
+            this.btnInvoice = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.btnPay = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.printDocument = new System.Drawing.Printing.PrintDocument();
+            this.printPreview = new System.Windows.Forms.PrintPreviewDialog();
             this.guna2GradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).BeginInit();
             this.guna2ShadowPanel1.SuspendLayout();
@@ -97,6 +100,29 @@
             this.guna2GradientPanel1.Name = "guna2GradientPanel1";
             this.guna2GradientPanel1.Size = new System.Drawing.Size(110, 808);
             this.guna2GradientPanel1.TabIndex = 0;
+            // 
+            // btnSetting
+            // 
+            this.btnSetting.BorderRadius = 5;
+            this.btnSetting.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSetting.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnSetting.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnSetting.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnSetting.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnSetting.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnSetting.FillColor = System.Drawing.Color.Transparent;
+            this.btnSetting.FillColor2 = System.Drawing.Color.Transparent;
+            this.btnSetting.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnSetting.ForeColor = System.Drawing.Color.Black;
+            this.btnSetting.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.btnSetting.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(68)))));
+            this.btnSetting.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(72)))), ((int)(((byte)(115)))));
+            this.btnSetting.Image = ((System.Drawing.Image)(resources.GetObject("btnSetting.Image")));
+            this.btnSetting.Location = new System.Drawing.Point(8, 690);
+            this.btnSetting.Name = "btnSetting";
+            this.btnSetting.Size = new System.Drawing.Size(93, 60);
+            this.btnSetting.TabIndex = 8;
+            this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click);
             // 
             // guna2PictureBox3
             // 
@@ -447,8 +473,9 @@
             // guna2Panel2
             // 
             this.guna2Panel2.BackColor = System.Drawing.Color.White;
-            this.guna2Panel2.Controls.Add(this.label8);
             this.guna2Panel2.Controls.Add(this.btnPay);
+            this.guna2Panel2.Controls.Add(this.btnInvoice);
+            this.guna2Panel2.Controls.Add(this.label8);
             this.guna2Panel2.Controls.Add(this.lbLastPrice);
             this.guna2Panel2.Controls.Add(this.lbVAT);
             this.guna2Panel2.Controls.Add(this.label5);
@@ -469,27 +496,6 @@
             this.label8.Size = new System.Drawing.Size(75, 20);
             this.label8.TabIndex = 7;
             this.label8.Text = "VAT(5%):";
-            // 
-            // btnPay
-            // 
-            this.btnPay.BorderRadius = 4;
-            this.btnPay.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPay.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnPay.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnPay.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnPay.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnPay.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnPay.FillColor = System.Drawing.Color.Green;
-            this.btnPay.FillColor2 = System.Drawing.Color.Green;
-            this.btnPay.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPay.ForeColor = System.Drawing.Color.Black;
-            this.btnPay.Image = ((System.Drawing.Image)(resources.GetObject("btnPay.Image")));
-            this.btnPay.Location = new System.Drawing.Point(200, 161);
-            this.btnPay.Name = "btnPay";
-            this.btnPay.Size = new System.Drawing.Size(131, 68);
-            this.btnPay.TabIndex = 6;
-            this.btnPay.Text = "Pay Now";
-            this.btnPay.Click += new System.EventHandler(this.btnPay_Click);
             // 
             // lbLastPrice
             // 
@@ -610,28 +616,62 @@
             this.label3.TabIndex = 0;
             this.label3.Text = " WELCOME    TO    YOU  !!";
             // 
-            // btnSetting
+            // btnInvoice
             // 
-            this.btnSetting.BorderRadius = 5;
-            this.btnSetting.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSetting.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnSetting.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnSetting.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnSetting.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnSetting.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnSetting.FillColor = System.Drawing.Color.Transparent;
-            this.btnSetting.FillColor2 = System.Drawing.Color.Transparent;
-            this.btnSetting.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnSetting.ForeColor = System.Drawing.Color.Black;
-            this.btnSetting.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.btnSetting.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(68)))));
-            this.btnSetting.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(72)))), ((int)(((byte)(115)))));
-            this.btnSetting.Image = ((System.Drawing.Image)(resources.GetObject("btnSetting.Image")));
-            this.btnSetting.Location = new System.Drawing.Point(8, 690);
-            this.btnSetting.Name = "btnSetting";
-            this.btnSetting.Size = new System.Drawing.Size(93, 60);
-            this.btnSetting.TabIndex = 8;
-            this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click);
+            this.btnInvoice.BorderRadius = 4;
+            this.btnInvoice.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnInvoice.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnInvoice.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnInvoice.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnInvoice.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnInvoice.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnInvoice.FillColor = System.Drawing.Color.Red;
+            this.btnInvoice.FillColor2 = System.Drawing.Color.Red;
+            this.btnInvoice.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInvoice.ForeColor = System.Drawing.Color.Black;
+            this.btnInvoice.Image = ((System.Drawing.Image)(resources.GetObject("btnInvoice.Image")));
+            this.btnInvoice.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnInvoice.Location = new System.Drawing.Point(53, 182);
+            this.btnInvoice.Name = "btnInvoice";
+            this.btnInvoice.Size = new System.Drawing.Size(134, 55);
+            this.btnInvoice.TabIndex = 8;
+            this.btnInvoice.Text = "Invoice";
+            this.btnInvoice.Click += new System.EventHandler(this.btnInvoice_Click);
+            // 
+            // btnPay
+            // 
+            this.btnPay.BorderRadius = 4;
+            this.btnPay.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPay.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnPay.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnPay.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnPay.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnPay.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnPay.FillColor = System.Drawing.Color.Green;
+            this.btnPay.FillColor2 = System.Drawing.Color.Green;
+            this.btnPay.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnPay.ForeColor = System.Drawing.Color.Black;
+            this.btnPay.Image = ((System.Drawing.Image)(resources.GetObject("btnPay.Image")));
+            this.btnPay.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnPay.Location = new System.Drawing.Point(296, 182);
+            this.btnPay.Name = "btnPay";
+            this.btnPay.Size = new System.Drawing.Size(134, 55);
+            this.btnPay.TabIndex = 9;
+            this.btnPay.Text = "Pay now";
+            // 
+            // printDocument
+            // 
+            this.printDocument.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument_PrintPage);
+            // 
+            // printPreview
+            // 
+            this.printPreview.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreview.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreview.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreview.Enabled = true;
+            this.printPreview.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreview.Icon")));
+            this.printPreview.Name = "printPreview";
+            this.printPreview.Visible = false;
             // 
             // frmMain
             // 
@@ -695,7 +735,6 @@
         private System.Windows.Forms.Label lbLastPrice;
         private System.Windows.Forms.Label lbVAT;
         private System.Windows.Forms.Label label5;
-        private Guna.UI2.WinForms.Guna2GradientTileButton btnPay;
         private System.Windows.Forms.Label label6;
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
         private System.Windows.Forms.Label lbUser;
@@ -707,5 +746,9 @@
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox2;
         private System.Windows.Forms.Label label8;
         private Guna.UI2.WinForms.Guna2GradientTileButton btnSetting;
+        private Guna.UI2.WinForms.Guna2GradientButton btnInvoice;
+        private Guna.UI2.WinForms.Guna2GradientButton btnPay;
+        private System.Drawing.Printing.PrintDocument printDocument;
+        private System.Windows.Forms.PrintPreviewDialog printPreview;
     }
 }
