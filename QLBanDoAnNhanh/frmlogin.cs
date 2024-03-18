@@ -91,9 +91,9 @@ namespace QLBanDoAnNhanh
                 if (string.Compare(tbEmail.Text, emp.Email, false) == 0 && string.Compare(tbPass.Text, emp.Password, false) == 0)
                 {
                     checkLogin = true;
-                    //Form frmmain = new frmMain(emp.IdEmployee, this);
-                    //this.Hide();
-                    //frmmain.Show();
+                    Form frmmain = new frmMain(emp.IdEmployee, this);
+                    this.Hide();
+                    frmmain.Show();
                 }
             }
             if (checkLogin == false)

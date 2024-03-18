@@ -12,7 +12,7 @@ namespace QLBanDoAnNhanh.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Product()
         {
-            Orders = new HashSet<Order>();
+            OrderDetails = new HashSet<OrderDetail>();
         }
 
         [Key]
@@ -37,9 +37,9 @@ namespace QLBanDoAnNhanh.Models
 
         public virtual Employee Employee { get; set; }
 
-        public virtual TypeProduct TypeProduct { get; set; }
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Order> Orders { get; set; }
+        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+
+        public virtual TypeProduct TypeProduct { get; set; }
     }
 }

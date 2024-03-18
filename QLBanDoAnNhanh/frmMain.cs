@@ -19,26 +19,35 @@ namespace QLBanDoAnNhanh
         private Item _itemProduct;
         private ItemOrder _itemOrder;
         private decimal _price = 0;
-        private int _category;
+        private int _category = 11;
 
         private frmlogin _frmlogin = new frmlogin();
-        //public frmMain(int idEmployee, frmlogin frmlogin)
-        //{
-        //    InitializeComponent();
-        //    _idEmployee = idEmployee;
-        //    _frmlogin = frmlogin;
-        //}
-        public frmMain()
+        public frmMain(int idEmployee, frmlogin frmlogin)
         {
             InitializeComponent();
+            _idEmployee = idEmployee;
+            _frmlogin = frmlogin;
         }
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            //flpOrder.Controls.Clear();
-            btnFoods.PerformClick();
-            //var emp = _posFastFood.Employees.Find(_idEmployee);
-            //lbUser.Text = emp.NameEmployee;
+            flpOrder.Controls.Clear();
+            switch (_category)
+            {
+                case 11:
+                    btnFoods.PerformClick(); break;
+                case 12:
+                    btnDrink.PerformClick(); break;
+                case 13:
+                    btnSnack.PerformClick(); break;
+                case 14:
+                    btnDessert.PerformClick(); break;
+                case 15:
+                    btnCombo.PerformClick(); break;
+            }
+            _posFastFood = new PosFastFood();
+            var emp = _posFastFood.Employees.Find(_idEmployee);
+            lbUser.Text = emp.NameEmployee;
         }
 
         private void btnFoods_Click(object sender, EventArgs e)
@@ -56,7 +65,7 @@ namespace QLBanDoAnNhanh
             btnAdditem.FillColor = Color.Transparent;
             btnAdditem.FillColor2 = Color.Transparent;
             lbCategory.Text = "Foods";
-            _category = 1;
+            _category = 11;
             flpItems.Controls.Clear();
             _posFastFood = new PosFastFood();
             var productItems = _posFastFood.Products.Where(x => x.IdTypeProduct == 11).ToList();
@@ -66,7 +75,7 @@ namespace QLBanDoAnNhanh
                 _itemProduct.ID = item.IdProduct;
                 _itemProduct._Name = item.NameProduct;
                 _itemProduct.Price = (decimal)item.PriceProduct;
-                _itemProduct.LablePrice = item.PriceProduct.Value.ToString("0.0") + "$";
+                _itemProduct.LablePrice = item.PriceProduct.Value.ToString("0.00") + "$";
                 if (item.IsActive == true)
                 {
                     _itemProduct.IsActive = false;
@@ -103,7 +112,7 @@ namespace QLBanDoAnNhanh
             btnAdditem.FillColor = Color.Transparent;
             btnAdditem.FillColor2 = Color.Transparent;
             lbCategory.Text = "Drink";
-            _category = 2;
+            _category = 12;
             flpItems.Controls.Clear();
             _posFastFood = new PosFastFood();
             var productItems = _posFastFood.Products.Where(x => x.IdTypeProduct == 12).ToList();
@@ -113,7 +122,7 @@ namespace QLBanDoAnNhanh
                 _itemProduct.ID = item.IdProduct;
                 _itemProduct._Name = item.NameProduct;
                 _itemProduct.Price = (decimal)item.PriceProduct;
-                _itemProduct.LablePrice = item.PriceProduct.Value.ToString("0.0") + "$";
+                _itemProduct.LablePrice = item.PriceProduct.Value.ToString("0.00") + "$";
                 if (item.IsActive == true)
                 {
                     _itemProduct.IsActive = false;
@@ -150,7 +159,7 @@ namespace QLBanDoAnNhanh
             btnAdditem.FillColor = Color.Transparent;
             btnAdditem.FillColor2 = Color.Transparent;
             lbCategory.Text = "Snack";
-            _category = 3;
+            _category = 13;
             flpItems.Controls.Clear();
             _posFastFood = new PosFastFood();
             var productItems = _posFastFood.Products.Where(x => x.IdTypeProduct == 13).ToList();
@@ -160,7 +169,7 @@ namespace QLBanDoAnNhanh
                 _itemProduct.ID = item.IdProduct;
                 _itemProduct._Name = item.NameProduct;
                 _itemProduct.Price = (decimal)item.PriceProduct;
-                _itemProduct.LablePrice = item.PriceProduct.Value.ToString("0.0") + "$";
+                _itemProduct.LablePrice = item.PriceProduct.Value.ToString("0.00") + "$";
                 if (item.IsActive == true)
                 {
                     _itemProduct.IsActive = false;
@@ -197,7 +206,7 @@ namespace QLBanDoAnNhanh
             btnAdditem.FillColor = Color.Transparent;
             btnAdditem.FillColor2 = Color.Transparent;
             lbCategory.Text = "Dessert";
-            _category = 4;
+            _category = 14;
             flpItems.Controls.Clear();
             _posFastFood = new PosFastFood();
             var productItems = _posFastFood.Products.Where(x => x.IdTypeProduct == 14).ToList();
@@ -207,7 +216,7 @@ namespace QLBanDoAnNhanh
                 _itemProduct.ID = item.IdProduct;
                 _itemProduct._Name = item.NameProduct;
                 _itemProduct.Price = (decimal)item.PriceProduct;
-                _itemProduct.LablePrice = item.PriceProduct.Value.ToString("0.0") + "$";
+                _itemProduct.LablePrice = item.PriceProduct.Value.ToString("0.00") + "$";
                 if (item.IsActive == true)
                 {
                     _itemProduct.IsActive = false;
@@ -244,7 +253,7 @@ namespace QLBanDoAnNhanh
             btnAdditem.FillColor = Color.Transparent;
             btnAdditem.FillColor2 = Color.Transparent;
             lbCategory.Text = "Combo";
-            _category = 5;
+            _category = 15;
             flpItems.Controls.Clear();
             _posFastFood = new PosFastFood();
             var productItems = _posFastFood.Products.Where(x => x.IdTypeProduct == 15).ToList();
@@ -254,7 +263,7 @@ namespace QLBanDoAnNhanh
                 _itemProduct.ID = item.IdProduct;
                 _itemProduct._Name = item.NameProduct;
                 _itemProduct.Price = (decimal)item.PriceProduct;
-                _itemProduct.LablePrice = item.PriceProduct.Value.ToString("0.0") + "$";
+                _itemProduct.LablePrice = item.PriceProduct.Value.ToString("0.00") + "$";
                 if (item.IsActive == true)
                 {
                     _itemProduct.IsActive = false;
@@ -296,7 +305,19 @@ namespace QLBanDoAnNhanh
             {
                 Form form = new frmAddItem(_idEmployee);
                 form.ShowDialog();
-                btnFoods.PerformClick();
+                switch (_category)
+                {
+                    case 11:
+                        btnFoods.PerformClick(); break;
+                    case 12:
+                        btnDrink.PerformClick(); break;
+                    case 13:
+                        btnSnack.PerformClick(); break;
+                    case 14:
+                        btnDessert.PerformClick(); break;
+                    case 15:
+                        btnCombo.PerformClick(); break;
+                }
             }
             else
             {
@@ -318,7 +339,7 @@ namespace QLBanDoAnNhanh
                 _itemOrder._Date = DateTime.Now.ToString();
                 _itemOrder.Quantity = 1;
                 _itemOrder.Image = _itemProduct.BackgroundImage;
-                _itemOrder.LablePrice = itemControl.Price.ToString("0.0") + "$";
+                _itemOrder.LablePrice = itemControl.Price.ToString("0.00") + "$";
                 _itemOrder.Tag = itemControl.ID;
                 _itemOrder.upDown.ValueChanged += numQuantity_Valuechanged;
                 flpOrder.Controls.Add(_itemOrder);
@@ -345,7 +366,7 @@ namespace QLBanDoAnNhanh
                     }
                 }
             }
-            lbVAT.Text = "-" + ((decimal)0.05 * _price).ToString("0.0") + "$";
+            lbVAT.Text = "-" + ((decimal)0.05 * _price).ToString("0.00") + "$";
             lbTotal.Text = _price.ToString("0.00") + "$";
             lbLastPrice.Text = (_price + ((decimal)0.05 * _price)).ToString("0.00") + "$";
         }
@@ -362,11 +383,11 @@ namespace QLBanDoAnNhanh
                         itemOrder.Quantity = (int)upDown.Value;
                     }
                     _price += (itemOrder.Price * itemOrder.Quantity);
-                    itemOrder.LablePrice = (itemOrder.Price * itemOrder.Quantity).ToString("0.0") + "$";
+                    itemOrder.LablePrice = (itemOrder.Price * itemOrder.Quantity).ToString("0.00") + "$";
 
                 }
             }
-            lbVAT.Text = "-" + ((decimal)0.05 * _price).ToString("0.0") + "$";
+            lbVAT.Text = "-" + ((decimal)0.05 * _price).ToString("0.00") + "$";
             lbTotal.Text = _price.ToString("0.00") + "$";
             lbLastPrice.Text = (_price + ((decimal)00.5 * _price)).ToString("0.00") + "$";
         }
@@ -384,6 +405,10 @@ namespace QLBanDoAnNhanh
                             {
                                 item.IsValid = true;
                             }
+                            else
+                            {
+                                item.IsValid = false;
+                            }
                         }
                     }
                 }
@@ -398,15 +423,15 @@ namespace QLBanDoAnNhanh
                 form.ShowDialog();
                 switch (_category)
                 {
-                    case 1:
+                    case 11:
                         btnFoods.PerformClick(); break;
-                    case 2:
+                    case 12:
                         btnDrink.PerformClick(); break;
-                    case 3:
+                    case 13:
                         btnSnack.PerformClick(); break;
-                    case 4:
+                    case 14:
                         btnDessert.PerformClick(); break;
-                    case 5:
+                    case 15:
                         btnCombo.PerformClick(); break;
                 }
             }
@@ -427,7 +452,7 @@ namespace QLBanDoAnNhanh
                         _itemProduct.ID = item.IdProduct;
                         _itemProduct._Name = item.NameProduct;
                         _itemProduct.Price = (decimal)item.PriceProduct;
-                        _itemProduct.LablePrice = item.PriceProduct.Value.ToString("0.0") + "$";
+                        _itemProduct.LablePrice = item.PriceProduct.Value.ToString("0.00") + "$";
                         if (item.IsActive == true)
                         {
                             _itemProduct.IsActive = false;
@@ -452,15 +477,15 @@ namespace QLBanDoAnNhanh
                 {
                     switch (_category)
                     {
-                        case 1:
+                        case 11:
                             btnFoods.PerformClick(); break;
-                        case 2:
+                        case 12:
                             btnDrink.PerformClick(); break;
-                        case 3:
+                        case 13:
                             btnSnack.PerformClick(); break;
-                        case 4:
+                        case 14:
                             btnDessert.PerformClick(); break;
-                        case 5:
+                        case 15:
                             btnCombo.PerformClick(); break;
                     }
                     DialogResult dialog = MessageBox.Show("Can't find this item!");
@@ -481,7 +506,7 @@ namespace QLBanDoAnNhanh
                     _itemProduct.ID = item.IdProduct;
                     _itemProduct._Name = item.NameProduct;
                     _itemProduct.Price = (decimal)item.PriceProduct;
-                    _itemProduct.LablePrice = item.PriceProduct.Value.ToString("0.0") + "$";
+                    _itemProduct.LablePrice = item.PriceProduct.Value.ToString("0.00") + "$";
                     if (item.IsActive == true)
                     {
                         _itemProduct.IsActive = false;
@@ -506,15 +531,15 @@ namespace QLBanDoAnNhanh
             {
                 switch (_category)
                 {
-                    case 1:
+                    case 11:
                         btnFoods.PerformClick(); break;
-                    case 2:
+                    case 12:
                         btnDrink.PerformClick(); break;
-                    case 3:
+                    case 13:
                         btnSnack.PerformClick(); break;
-                    case 4:
+                    case 14:
                         btnDessert.PerformClick(); break;
-                    case 5:
+                    case 15:
                         btnCombo.PerformClick(); break;
                 }
                 DialogResult dialog = MessageBox.Show("Can't find this item!");
@@ -523,7 +548,23 @@ namespace QLBanDoAnNhanh
 
         private void btnPay_Click(object sender, EventArgs e)
         {
+            OrderDetail orderDetail = new OrderDetail();
+            Order order = new Order();
+            foreach (Control control in flpOrder.Controls)
+            {
+                if (control is ItemOrder item)
+                {
+                    Product product = _posFastFood.Products.Find(item.Tag);
+                    order.quantity = flpOrder.Controls.Count;
+                    order.Total = (_price * (decimal)0.05) + _price;
+                    order.CreateDate = DateTime.Now;
+                    order.IdEmployee = _idEmployee;
 
+                }
+            }
+            _posFastFood.Orders.Add(order);
+            _posFastFood.SaveChanges();
+            frmMain_Load(sender, e);
         }
 
         private void guna2ControlBox1_Click(object sender, EventArgs e)

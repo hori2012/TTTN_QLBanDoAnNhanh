@@ -13,6 +13,7 @@ namespace QLBanDoAnNhanh.Models
         }
 
         public virtual DbSet<Employee> Employees { get; set; }
+        public virtual DbSet<OrderDetail> OrderDetails { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<RoleEmployee> RoleEmployees { get; set; }
@@ -29,9 +30,9 @@ namespace QLBanDoAnNhanh.Models
                 .HasPrecision(19, 4);
 
             modelBuilder.Entity<Order>()
-                .HasMany(e => e.Products)
-                .WithMany(e => e.Orders)
-                .Map(m => m.ToTable("OrderDetail").MapLeftKey("IdOrder").MapRightKey("IdProduct"));
+                .HasMany(e => e.OrderDetails)
+                .WithRequired(e => e.Order)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Product>()
                 .Property(e => e.NameProduct)
@@ -44,6 +45,11 @@ namespace QLBanDoAnNhanh.Models
             modelBuilder.Entity<Product>()
                 .Property(e => e.Decriptions)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<Product>()
+                .HasMany(e => e.OrderDetails)
+                .WithRequired(e => e.Product)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<RoleEmployee>()
                 .Property(e => e.NameRole)

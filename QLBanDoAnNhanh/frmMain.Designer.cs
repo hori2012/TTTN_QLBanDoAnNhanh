@@ -55,6 +55,8 @@
             this.lbCategory = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnPay = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.btnInvoice = new Guna.UI2.WinForms.Guna2GradientButton();
             this.label8 = new System.Windows.Forms.Label();
             this.lbLastPrice = new System.Windows.Forms.Label();
             this.lbVAT = new System.Windows.Forms.Label();
@@ -67,8 +69,6 @@
             this.flpOrder = new System.Windows.Forms.FlowLayoutPanel();
             this.guna2GradientPanel2 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnInvoice = new Guna.UI2.WinForms.Guna2GradientButton();
-            this.btnPay = new Guna.UI2.WinForms.Guna2GradientButton();
             this.printDocument = new System.Drawing.Printing.PrintDocument();
             this.printPreview = new System.Windows.Forms.PrintPreviewDialog();
             this.guna2GradientPanel1.SuspendLayout();
@@ -486,6 +486,50 @@
             this.guna2Panel2.Size = new System.Drawing.Size(477, 267);
             this.guna2Panel2.TabIndex = 8;
             // 
+            // btnPay
+            // 
+            this.btnPay.BorderRadius = 4;
+            this.btnPay.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPay.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnPay.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnPay.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnPay.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnPay.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnPay.FillColor = System.Drawing.Color.Green;
+            this.btnPay.FillColor2 = System.Drawing.Color.Green;
+            this.btnPay.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnPay.ForeColor = System.Drawing.Color.Black;
+            this.btnPay.Image = ((System.Drawing.Image)(resources.GetObject("btnPay.Image")));
+            this.btnPay.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnPay.Location = new System.Drawing.Point(296, 182);
+            this.btnPay.Name = "btnPay";
+            this.btnPay.Size = new System.Drawing.Size(134, 55);
+            this.btnPay.TabIndex = 9;
+            this.btnPay.Text = "Pay now";
+            this.btnPay.Click += new System.EventHandler(this.btnPay_Click);
+            // 
+            // btnInvoice
+            // 
+            this.btnInvoice.BorderRadius = 4;
+            this.btnInvoice.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnInvoice.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnInvoice.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnInvoice.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnInvoice.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnInvoice.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnInvoice.FillColor = System.Drawing.Color.Red;
+            this.btnInvoice.FillColor2 = System.Drawing.Color.Red;
+            this.btnInvoice.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInvoice.ForeColor = System.Drawing.Color.Black;
+            this.btnInvoice.Image = ((System.Drawing.Image)(resources.GetObject("btnInvoice.Image")));
+            this.btnInvoice.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnInvoice.Location = new System.Drawing.Point(53, 182);
+            this.btnInvoice.Name = "btnInvoice";
+            this.btnInvoice.Size = new System.Drawing.Size(134, 55);
+            this.btnInvoice.TabIndex = 8;
+            this.btnInvoice.Text = "Invoice";
+            this.btnInvoice.Click += new System.EventHandler(this.btnInvoice_Click);
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -581,7 +625,7 @@
             this.flpItems.BackColor = System.Drawing.Color.White;
             this.flpItems.Location = new System.Drawing.Point(174, 170);
             this.flpItems.Name = "flpItems";
-            this.flpItems.Size = new System.Drawing.Size(670, 635);
+            this.flpItems.Size = new System.Drawing.Size(693, 635);
             this.flpItems.TabIndex = 5;
             // 
             // flpOrder
@@ -615,49 +659,6 @@
             this.label3.Size = new System.Drawing.Size(31, 391);
             this.label3.TabIndex = 0;
             this.label3.Text = " WELCOME    TO    YOU  !!";
-            // 
-            // btnInvoice
-            // 
-            this.btnInvoice.BorderRadius = 4;
-            this.btnInvoice.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnInvoice.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnInvoice.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnInvoice.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnInvoice.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnInvoice.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnInvoice.FillColor = System.Drawing.Color.Red;
-            this.btnInvoice.FillColor2 = System.Drawing.Color.Red;
-            this.btnInvoice.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInvoice.ForeColor = System.Drawing.Color.Black;
-            this.btnInvoice.Image = ((System.Drawing.Image)(resources.GetObject("btnInvoice.Image")));
-            this.btnInvoice.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnInvoice.Location = new System.Drawing.Point(53, 182);
-            this.btnInvoice.Name = "btnInvoice";
-            this.btnInvoice.Size = new System.Drawing.Size(134, 55);
-            this.btnInvoice.TabIndex = 8;
-            this.btnInvoice.Text = "Invoice";
-            this.btnInvoice.Click += new System.EventHandler(this.btnInvoice_Click);
-            // 
-            // btnPay
-            // 
-            this.btnPay.BorderRadius = 4;
-            this.btnPay.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPay.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnPay.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnPay.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnPay.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnPay.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnPay.FillColor = System.Drawing.Color.Green;
-            this.btnPay.FillColor2 = System.Drawing.Color.Green;
-            this.btnPay.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.btnPay.ForeColor = System.Drawing.Color.Black;
-            this.btnPay.Image = ((System.Drawing.Image)(resources.GetObject("btnPay.Image")));
-            this.btnPay.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnPay.Location = new System.Drawing.Point(296, 182);
-            this.btnPay.Name = "btnPay";
-            this.btnPay.Size = new System.Drawing.Size(134, 55);
-            this.btnPay.TabIndex = 9;
-            this.btnPay.Text = "Pay now";
             // 
             // printDocument
             // 
