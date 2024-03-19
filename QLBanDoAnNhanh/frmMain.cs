@@ -64,6 +64,8 @@ namespace QLBanDoAnNhanh
             btnCombo.FillColor2 = Color.Transparent;
             btnAdditem.FillColor = Color.Transparent;
             btnAdditem.FillColor2 = Color.Transparent;
+            btnSetting.FillColor = Color.Transparent;
+            btnSetting.FillColor2 = Color.Transparent;
             lbCategory.Text = "Foods";
             _category = 11;
             flpItems.Controls.Clear();
@@ -158,6 +160,8 @@ namespace QLBanDoAnNhanh
             btnCombo.FillColor2 = Color.Transparent;
             btnAdditem.FillColor = Color.Transparent;
             btnAdditem.FillColor2 = Color.Transparent;
+            btnSetting.FillColor = Color.Transparent;
+            btnSetting.FillColor2 = Color.Transparent;
             lbCategory.Text = "Snack";
             _category = 13;
             flpItems.Controls.Clear();
@@ -205,6 +209,8 @@ namespace QLBanDoAnNhanh
             btnCombo.FillColor2 = Color.Transparent;
             btnAdditem.FillColor = Color.Transparent;
             btnAdditem.FillColor2 = Color.Transparent;
+            btnSetting.FillColor = Color.Transparent;
+            btnSetting.FillColor2 = Color.Transparent;
             lbCategory.Text = "Dessert";
             _category = 14;
             flpItems.Controls.Clear();
@@ -252,6 +258,8 @@ namespace QLBanDoAnNhanh
             btnCombo.FillColor2 = Color.FromArgb(247, 72, 115);
             btnAdditem.FillColor = Color.Transparent;
             btnAdditem.FillColor2 = Color.Transparent;
+            btnSetting.FillColor = Color.Transparent;
+            btnSetting.FillColor2 = Color.Transparent;
             lbCategory.Text = "Combo";
             _category = 15;
             flpItems.Controls.Clear();
@@ -299,6 +307,8 @@ namespace QLBanDoAnNhanh
             btnCombo.FillColor2 = Color.Transparent;
             btnAdditem.FillColor = Color.FromArgb(249, 130, 68);
             btnAdditem.FillColor2 = Color.FromArgb(247, 72, 115);
+            btnSetting.FillColor = Color.Transparent;
+            btnSetting.FillColor2 = Color.Transparent;
             _posFastFood = new PosFastFood();
             var employee = _posFastFood.Employees.Find(_idEmployee);
             if (employee.IdRole == 1 || string.Compare(employee.RoleEmployee.NameRole, "admin", false) == 0)
@@ -404,10 +414,6 @@ namespace QLBanDoAnNhanh
                             if ((int)item.Tag == (int)itemOrder.Tag)
                             {
                                 item.IsValid = true;
-                            }
-                            else
-                            {
-                                item.IsValid = false;
                             }
                         }
                     }
@@ -575,6 +581,7 @@ namespace QLBanDoAnNhanh
             }
             _posFastFood.Orders.Add(order);
             _posFastFood.SaveChanges();
+            MessageBox.Show("Succsess!!");
             frmMain_Load(sender, e);
         }
 
@@ -591,6 +598,20 @@ namespace QLBanDoAnNhanh
 
         private void btnSetting_Click(object sender, EventArgs e)
         {
+            btnFoods.FillColor = Color.Transparent;
+            btnFoods.FillColor2 = Color.Transparent;
+            btnDrink.FillColor = Color.Transparent;
+            btnDrink.FillColor2 = Color.Transparent;
+            btnSnack.FillColor = Color.Transparent;
+            btnSnack.FillColor2 = Color.Transparent;
+            btnDessert.FillColor = Color.Transparent;
+            btnDessert.FillColor2 = Color.Transparent;
+            btnCombo.FillColor = Color.Transparent;
+            btnCombo.FillColor2 = Color.Transparent;
+            btnAdditem.FillColor = Color.Transparent;
+            btnAdditem.FillColor2 = Color.Transparent;
+            btnSetting.FillColor = Color.FromArgb(249, 130, 68);
+            btnSetting.FillColor2 = Color.FromArgb(247, 72, 115);
             Form frmchangePass = new frmChangePass(_idEmployee);
             frmchangePass.ShowDialog();
         }
